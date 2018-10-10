@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cdeath/jekylify
+  repo: cdeath/cdeath.github.io
 media_folder: /assets/media/uploads
 publish_mode: editorial_workflow
 collections:
