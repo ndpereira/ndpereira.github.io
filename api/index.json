@@ -2,5 +2,12 @@
 layout: null
 ---
 {
-  "team": "{{site.url | append: '/api/team'}}"
+  "news": "{{site.url | append: '/api/news'}}",
+  "pages": "{{site.url | append: '/api/pages'}}",
+  "sections": "{{site.url | append: '/api/sections'}}",
+  "navigation": "{{site.url | append: '/api/navigation'}}",
+  "people": "{{site.url | append: '/api/people'}}",
+  "organizations": "{{site.url | append: '/api/organizations'}}",
+  "settings": "{{site.url | append: '/api/settings'}}",
+  "search": "{{site.url | append: '/api/search'}}"
 }
