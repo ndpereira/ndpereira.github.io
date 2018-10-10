@@ -1,0 +1,165 @@
+---
+---
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  .navbar-brand {
+    margin-bottom: 0;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  text-transform: uppercase;
+  text-shadow: none;
+  font-weight: 600;
+  border-radius: 10rem;
+  &.btn-lg {
+    padding: 1rem 2rem;
+  }
+}
+
+section {
+  height: 100vh;
+  background: #FAFAFA;
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  h1, h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 3rem;
+  }
+}
+
+#hero {
+  &, .carousel, .carousel-inner, .carousel-item {
+    height: calc(100vh - 3.5rem);
+  }
+  .carousel-item {
+    background: #000;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .6;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 100%;
+      z-index: 2;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    }
+    .body {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+#numbers {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  dl {
+    margin: auto 0;
+  }
+  dt {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  dd {
+    font-size: 0;
+    > * {
+      font-size: 5rem;
+      font-weight: 100;
+      line-height: 1;
+    }
+  }
+  .prefix, .suffix {
+    font-size: 4rem;
+    font-weight: 100;
+  }
+}
+
+#news {
+  background: #12589d;
+  color: #fff;
+  h1 {
+    margin-bottom: 2rem;
+  }
+  article {
+    background: rgba(255, 255, 255, .2);
+    padding: 2rem;
+    .title {
+      font-size: 1.5rem;
+      min-height: 4rem;
+      a {
+        color: #fff;
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .body {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  section {
+    h1, h2 {
+      font-size: 5rem;
+    }
+  }
+  #hero {
+    &, .carousel, .carousel-inner, .carousel-item {
+      height: calc(100vh - 3.5rem);
+    }
+    .carousel-item {
+      .content {
+        width: 66.66%;
+      }
+      .body {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+}

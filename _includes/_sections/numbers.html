@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>{{section.title}}</h1>
+  {% for number in section.numbers %}
+  {% if forloop.first %}<dl class="row list-unstyled">{% endif %}
+    <div class="col-12 col-md-4 d-flex flex-column-reverse text-right">
+      <dt>{{number.title}}</dt>
+      <dd>
+        {% if number.prefix %}<span class="prefix">{{number.prefix}}</span>{% endif %}
+        <span class="number">{{number.number}}</span>
+        {% if number.suffix %}<span class="suffix">{{number.suffix}}</span>{% endif %}
+      </dd>
+    </div>
+  {% if forloop.last %}</dl>{% endif %}
+  {% endfor %}
+</div>

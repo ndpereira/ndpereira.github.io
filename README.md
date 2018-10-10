@@ -1,2 +1,2 @@
-# cdeath.github.io
-hello world
+# jekylify
+jekyll + netlify cms

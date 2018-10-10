@@ -1,0 +1,25 @@
+{% assign rev = site.time | date: '%s' %}
+{% assign settings = site.settings | where: "slug", "general" | first %}
+{% assign social = site.settings | where: "slug", "social" | first %}
+{% assign integrations = site.settings | where: "slug", "integrations" | first %}
+<!DOCTYPE html>
+<html lang="en-US" class="{{page.slug}}{% if page.class %} {{page.class}}{% endif %}">
+{% include head.html %}
+<body>
+  {% include svg.html %}
+  {% include header.html %}
+  <main id="main" role="main">
+    {% for item in page.sections %}
+    {% assign slug = item.section | slugify %}
+    {% assign section = site.sections | where: "slug", slug | first %}
+    <section id="{{section.slug}}"{% if section.class %} class="{{section.class}}"{% endif %}>
+      {% include _sections/{{section.slug}}.html %}
+    </section>
+    {% endfor %}
+    {{content}}
+  </main>
+  {% include footer.html %}
+  {% include modals.html %}
+  {% include js.html %}
+</body>
+</html>

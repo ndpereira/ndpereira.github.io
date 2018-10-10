@@ -1,0 +1,38 @@
+<h1 class="sr-only">{{section.title}}</h1>
+{% if section.slides.size > 0 %}
+<div id="hero-carousel" class="carousel slide"{% if section.slides.size > 1 %} data-ride="carousel"{% endif %}>
+  {% if section.slides.size > 1 %}
+  <ol class="carousel-indicators">
+    {% for slide in section.slides %}
+    <li data-target="#hero-carousel" data-slide-to="{{forloop.index0}}"{% if forloop.first %} class="active">{% endif %}</li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+  <div class="carousel-inner">
+    {% for slide in section.slides %}
+    <div class="carousel-item{% if forloop.first %} active{% endif%}">
+      <img src="{{slide.image}}" alt="{{slide.title}}">
+      <div class="container">
+        {% if slide.title %}<h2 class="title">{{slide.title}}</h2>{% endif %}
+        <div class="d-flex align-items-center h-100">
+          <div class="content">
+            <div class="body">{{slide.body}}</div>
+            {% if slide.button %}<a href="{{slide.button.url}}" class="btn btn-{{slide.button.type}} btn-lg">{{slide.button.title | default: slide.button.url}}</a>{% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if section.slides.size > 1 %}
+  <a class="carousel-control-prev" href="#hero-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#hero-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  {% endif %}
+</div>
+{% endif %}

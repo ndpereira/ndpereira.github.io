@@ -1,0 +1,6 @@
+---
+layout: null
+---
+{
+  "team": "{{site.url | append: '/api/team'}}"
+}
