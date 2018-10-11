@@ -1,10 +1,6 @@
-{% if jekyll.environment == production %}
-<script src="/assets/js/build.min.js?v={{rev}}"></script>
-{% else %}
 <script src="/assets/js/vendor/jquery/jquery.min.js?v={{rev}}"></script>
 <script src="/assets/js/vendor/fezvrasta/popper.min.js?v={{rev}}"></script>
 <script src="/assets/js/vendor/bootstrap/bootstrap.min.js?v={{rev}}"></script>
+<script src="/assets/js/vendor/janl/mustache.min.js?v={{rev}}"></script>
 <script src="/assets/js/search.js?v={{rev}}"></script>
 <script src="/assets/js/main.js?v={{rev}}"></script>
-{% endif %}
-{{integrations.google_analytics}}
