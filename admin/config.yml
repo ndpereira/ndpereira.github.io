@@ -1,6 +1,8 @@
 backend:
   name: github
   repo: cdeath/cdeath.github.io
+  auth_type: implicit
+
 media_folder: /assets/media/uploads
 publish_mode: editorial_workflow
 collections:
@@ -26,6 +28,7 @@ collections:
     editor:
       preview: false
     fields:
+      - {name: "permalink", label: "Slug", widget: "string", required: false, hint: "Custom URL for this page (defaults to title-based slug)"}
       - {name: "title", label: "Title", widget: "string", hint: "The title of the page"}
       - {name: "description", label: "Description", widget: "text", required: false, hint: "The description of the page for SEO (defaults to site description)"}
       - name: "sections"
@@ -35,8 +38,8 @@ collections:
         widget: "list"
         fields:
           - {name: "section", label: "Section", widget: "relation", collection: "sections", displayFields: ["title"], searchFields: ["title"], valueField: "title"}
+          - {name: "carousel", label: "Carousel", widget: "relation", collection: "carousels", displayFields: ["title"], searchFields: ["title"], valueField: "title"}
       - {name: "image", label: "Sharing Image", widget: "image", required: false, hint: "Page image for sharing on social networks (defaults to site image)"}
-      - {name: "permalink", label: "Custom Slug", widget: "string", required: false, hint: "Custom URL for this page (defaults to title-based slug)"}
 
   - name: "sections"
     label: "Sections"
@@ -44,31 +47,6 @@ collections:
     editor:
       preview: false
     files:
-      - name: "hero"
-        label: "Hero"
-        file: "_collections/_sections/hero.md"
-        description: "Homepage Hero"
-        fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - name: "slides"
-            label: "Slides"
-            label_singular: "Slide"
-            widget: "list"
-            required: false
-            fields:
-              - {name: "title", label: "Title", widget: "string"}
-              - {name: "body", label: "Body", widget: "markdown"}
-              - {name: "image", label: "Image", widget: "image"}
-              - name: "button"
-                label: "Button"
-                widget: "object"
-                required: false
-                fields:
-                  - {name: "title", label: "Title", widget: "string"}
-                  - {name: "url", label: "URL", widget: "string"}
-                  - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"]}
-
       - name: "about"
         label: "About"
         file: "_collections/_sections/about.md"
@@ -141,6 +119,33 @@ collections:
             widget: "list"
             fields:
               - {name: "person", label: "Person", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title"}
+
+  - name: "carousels"
+    label: "Carousels"
+    label_singular: "Carousel"
+    folder: "_collections/_carousels"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {name: "title", label: "Name", widget: "string", hint: "The name of the carousel"}
+      - name: "slides"
+        label: "Slides"
+        label_singular: "Slide"
+        widget: "list"
+        required: false
+        fields:
+          - {name: "title", label: "Title", widget: "string"}
+          - {name: "body", label: "Body", widget: "markdown"}
+          - {name: "image", label: "Image", widget: "image"}
+          - name: "button"
+            label: "Button"
+            widget: "object"
+            required: false
+            fields:
+              - {name: "title", label: "Title", widget: "string"}
+              - {name: "url", label: "URL", widget: "string"}
+              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"]}
 
   - name: "people"
     label: "People"

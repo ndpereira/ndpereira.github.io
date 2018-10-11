@@ -1,5 +1,5 @@
 ---
-title: Hero
+title: Home
 slides:
   - title: This is a slide :D
     body: >-
@@ -22,4 +22,3 @@ slides:
       url: '#'
     image: /assets/media/uploads/photo-1485827329522-c625acce0067.jpeg
 ---
-
