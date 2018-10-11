@@ -38,15 +38,15 @@
       $('#search-modal-results').html('');
     });
 
-    input.on('input', function (evt) {
-      var terms = evt.target.value;
-      $('#search-modal-results').html(terms.length > 3 ? Mustache.render(templates['search'], {
-        results: window.search.map(function (page) {
-          return $.extend({}, page, { content: search(terms, page.content) });
-        }).filter(function (page) {
+    input.on('input', function(evt) {
+      var needle = evt.target.value;
+      $('#search-modal-results').html(needle.length < 3 ? '' : Mustache.render(templates['search'], {
+        results: window.search.map(function(page) {
+          return $.extend({}, page, {content: search(needle, page.content)});
+        }).filter(function(page) {
           return !!page.content;
         })
-      }) : '');
+      }));
     });
   }())
 

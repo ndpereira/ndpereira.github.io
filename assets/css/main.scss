@@ -21,6 +21,9 @@ mark {
   .navbar-brand {
     margin-bottom: 0;
   }
+  a {
+    color: #fff;
+  }
 }
 
 .btn {
@@ -83,6 +86,26 @@ section {
   }
 }
 
+#footer {
+  margin-top: auto;
+  min-height: 15rem;
+  padding-top: 2rem;
+  background: #333;
+  color: #fff;
+}
+
+#search-modal-results {
+  margin-bottom: 0;
+  li {
+    div {
+      font-size: .875rem;
+    }
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 #numbers {
   .container {
     display: flex;
@@ -138,14 +161,6 @@ section {
       font-size: 1.25rem;
     }
   }
-}
-
-#footer {
-  margin-top: auto;
-  min-height: 15rem;
-  padding-top: 2rem;
-  background: #333;
-  color: #fff;
 }
 
 // Extra small devices (portrait phones, less than 576px)

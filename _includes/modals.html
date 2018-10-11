@@ -13,23 +13,21 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <ul id="search-modal-results" class="list-unstyled">
-          {% raw %}
-          <script type="x-tmpl-mustache" data-template="search">
-            {{#results}}
-            <li>
-              <a href="{{url}}">{{title}}</a>
-              <div>{{{content}}}</div>
-            </li>
-            {{/results}}
-            {{^results}}
-              <li class="empty">No results</li>
-            {{/results}}
-          </script>
-          {% endraw %}
-        </ul>
-      </div>
+      <ul id="search-modal-results" class="modal-body list-unstyled">
+        {% raw %}
+        <script type="x-tmpl-mustache" data-template="search">
+          {{#results}}
+          <li>
+            <a href="{{url}}">{{title}}</a>
+            <div>{{{content}}}</div>
+          </li>
+          {{/results}}
+          {{^results}}
+            <li class="empty">No results</li>
+          {{/results}}
+        </script>
+        {% endraw %}
+      </ul>
     </div>
   </div>
 </div>
