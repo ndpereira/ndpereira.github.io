@@ -33,6 +33,8 @@ collections:
     permalink: :slug/
   sections:
     output: false
+  carousels:
+    output: false
   navigation:
     output: false
   people:

@@ -3,6 +3,14 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 3rem;
 }
 
 .navbar {
@@ -22,23 +30,14 @@ body {
   }
 }
 
-section {
-  height: 100vh;
-  background: #FAFAFA;
-  .container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  h1, h2 {
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 3rem;
-  }
-}
-
-#hero {
-  &, .carousel, .carousel-inner, .carousel-item {
-    height: calc(100vh - 3.5rem);
+.carousel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  &, .carousel-inner, .carousel-item {
+    height: 100%;
   }
   .carousel-item {
     background: #000;
@@ -64,6 +63,19 @@ section {
       font-size: 1.5rem;
       margin-bottom: 2rem;
     }
+  }
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  background: #FAFAFA;
+  &:first-child {
+    min-height: calc(100vh - 3.5rem);
+  }
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -124,6 +136,14 @@ section {
   }
 }
 
+#footer {
+  margin-top: auto;
+  min-height: 15rem;
+  padding-top: 2rem;
+  background: #333;
+  color: #fff;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
@@ -134,23 +154,8 @@ section {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  section {
-    h1, h2 {
-      font-size: 5rem;
-    }
-  }
-  #hero {
-    &, .carousel, .carousel-inner, .carousel-item {
-      height: calc(100vh - 3.5rem);
-    }
-    .carousel-item {
-      .content {
-        width: 66.66%;
-      }
-      .body {
-        font-size: 1.75rem;
-      }
-    }
+  h1, h2 {
+    font-size: 5rem;
   }
 }
 
