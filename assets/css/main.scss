@@ -100,14 +100,20 @@ section {
   color: #fff;
 }
 
-#search-modal-results {
-  margin-bottom: 0;
-  li {
-    div {
-      font-size: .875rem;
-    }
-    &:not(:last-child) {
-      margin-bottom: 1rem;
+#search-modal {
+  #search-modal-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  #search-modal-results {
+    margin-bottom: 0;
+    li {
+      div {
+        font-size: .875rem;
+      }
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
   }
 }

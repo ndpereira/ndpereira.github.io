@@ -35,18 +35,18 @@
       $('#search-modal-input').focus();
     }).on('hidden.bs.modal', function() {
       $('#search-modal-input').val('');
-      $('#search-modal-results').html('');
+      $('#search-modal-results').html('').addClass('d-none');
     });
 
     input.on('input', function(evt) {
-      var needle = evt.target.value;
-      $('#search-modal-results').html(needle.length < 3 ? '' : Mustache.render(templates['search'], {
-        results: window.search.map(function(page) {
-          return $.extend({}, page, {content: search(needle, page.content)});
-        }).filter(function(page) {
-          return !!page.content;
-        })
-      }));
+      var needle = evt.target.value,
+          results = needle.length > 3 && window.search.map(function (page) {
+            return $.extend({}, page, { content: search(needle, page.content) });
+          }).filter(function (page) {
+            return !!page.content;
+          });
+
+      $('#search-modal-results').toggleClass('d-none', !results).html(Mustache.render(templates['search'], {results: results}));
     });
   }())
 
