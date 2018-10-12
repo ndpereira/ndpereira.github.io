@@ -1,10 +1,9 @@
 backend:
   name: github
   repo: cdeath/cdeath.github.io
-  auth_type: implicit
 
 media_folder: /assets/media/uploads
-publish_mode: editorial_workflow
+#publish_mode: editorial_workflow
 collections:
   - name: "news"
     label: "News"
