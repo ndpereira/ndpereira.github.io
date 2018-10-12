@@ -83,6 +83,12 @@ section {
   .container {
     padding-top: 2rem;
     padding-bottom: 2rem;
+    > h1 {
+      margin-bottom: 2rem;
+    }
+  }
+  .content {
+    font-size: 1.25rem;
   }
 }
 
@@ -106,7 +112,12 @@ section {
   }
 }
 
+#about {
+
+}
+
 #numbers {
+  height: 100vh;
   .container {
     display: flex;
     flex-direction: column;
@@ -136,8 +147,8 @@ section {
 #news {
   background: #12589d;
   color: #fff;
-  h1 {
-    margin-bottom: 2rem;
+  li:not(:last-child) {
+    margin-bottom: 1rem;
   }
   article {
     background: rgba(255, 255, 255, .2);
@@ -163,6 +174,19 @@ section {
   }
 }
 
+#clients {
+  li > div {
+    background: #eaeaea;
+    padding: 1rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  a {
+    color: #000;
+  }
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
@@ -180,7 +204,9 @@ section {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
+  .navbar-search {
+    margin-left: 1rem;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)

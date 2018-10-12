@@ -39,6 +39,8 @@ collections:
     output: false
   people:
     output: false
+  organizations:
+    output: false
   settings:
     output: false
 

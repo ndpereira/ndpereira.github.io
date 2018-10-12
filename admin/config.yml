@@ -31,6 +31,7 @@ collections:
       - {name: "permalink", label: "Slug", widget: "string", required: false, hint: "Custom URL for this page (defaults to title-based slug)"}
       - {name: "title", label: "Title", widget: "string", hint: "The title of the page"}
       - {name: "description", label: "Description", widget: "text", required: false, hint: "The description of the page for SEO (defaults to site description)"}
+      - {name: "body", label: "Body", widget: "markdown", required: false, hint: "The content for the page"}
       - name: "sections"
         label: "Sections"
         hint: "The content sections that will appear on the page"
@@ -184,6 +185,7 @@ collections:
       - {name: "title", label: "Name", widget: "string"}
       - {name: "logo", label: "Logo", widget: "image", required: false}
       - {name: "url", label: "URL", widget: "string", required: false}
+      - {name: "industry", label: "Industry", widget: "string", required: false}
       - {name: "type", label: "Type", widget: "select", options: ["Company", "Brand", "Client", "Sponsor", "Partner", "Media Partner"]}
 
   - name: "navigation"
