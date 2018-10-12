@@ -37,6 +37,10 @@ mark {
   }
 }
 
+.modal-content {
+  overflow: hidden;
+}
+
 .carousel {
   position: absolute;
   top: 0;
@@ -118,10 +122,6 @@ section {
   }
 }
 
-#about {
-
-}
-
 #numbers {
   height: 100vh;
   .container {
@@ -157,7 +157,7 @@ section {
     margin-bottom: 1rem;
   }
   article {
-    background: rgba(255, 255, 255, .2);
+    background: rgba(255, 255, 255, .25);
     padding: 2rem;
     .title {
       font-size: 1.5rem;
@@ -181,8 +181,12 @@ section {
 }
 
 #clients {
+  background: indigo;
+  h1 {
+    color: #fff;
+  }
   li > div {
-    background: #eaeaea;
+    background: rgba(255, 255, 255, .75);
     padding: 1rem;
   }
   h2 {
