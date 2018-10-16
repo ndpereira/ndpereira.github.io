@@ -259,4 +259,4 @@ collections:
           - {name: "google_analytics", label: "Google Analytics Tag", widget: "text", required: false}
           - {name: "google_maps", label: "Google Maps Key", widget: "string", required: false}
           - {name: "facebook_app_id", label: "Facebook App ID", widget: "string", required: false}
-          - {name: "newsletter", label: "Newsletter TAG", widget: "text", hint: 'Mailchimp, Mailerlite, etc", required: false}
+          - {name: "newsletter", label: "Newsletter TAG", widget: "text", hint: "Mailchimp, Mailerlite, etc", required: false}
