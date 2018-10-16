@@ -8,3 +8,4 @@ aside a[href="#/collections/navigation"] span::before { content: "\f0e8"; }
 aside a[href="#/collections/people"] span::before { content: "\f2b9"; }
 aside a[href="#/collections/organizations"] span::before { content: "\f1ad"; }
 aside a[href="#/collections/settings"] span::before { content: "\f085"; }
+aside a[href="#/collections/carousels"] span::before { content: "\f302"; }
