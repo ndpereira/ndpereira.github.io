@@ -217,9 +217,9 @@ collections:
             widget: "list"
             displayFields: ["page", "title", "url"]
             fields:
-              - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)", required: false}
               - {name: "page", label: "Page", widget: "relation", collection: "pages", displayFields: ["title"], searchFields: ["title"], valueField: "title", hint: "Choose a page...", required: false}
               - {name: "url", label: "External URL", widget: "string", default: "https://", hint: "...or link to an external URL", required: false}
+              - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)", required: false}
 
   - name: "settings"
     label: "Settings"
