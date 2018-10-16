@@ -1,6 +1,5 @@
 {% assign rev = site.time | date: '%s' %}
 {% assign settings = site.settings | where: "slug", "general" | first %}
-{% assign social = site.settings | where: "slug", "social" | first %}
 {% assign integrations = site.settings | where: "slug", "integrations" | first %}
 <!DOCTYPE html>
 <html lang="en-US" class="{{page.slug}}{% if page.class %} {{page.class}}{% endif %}">

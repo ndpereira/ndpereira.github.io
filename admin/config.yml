@@ -238,16 +238,19 @@ collections:
           - {name: "search", label: "Site Search", widget: "boolean", default: true}
           - {name: "email", label: "Site Email", widget: "string", required: false}
           - {name: "phone", label: "Site Phone Number", widget: "string", required: false}
-      - name: "social"
-        label: "Social"
-        file: "_collections/_settings/social.md"
-        description: "Social Networks"
-        fields:
-          - {name: "LinkedIn", label: "LinkedIn", widget: "string", required: false}
-          - {name: "Twitter", label: "Twitter", widget: "string", required: false}
-          - {name: "Instagram", label: "Instagram", widget: "string", required: false}
-          - {name: "Medium", label: "Medium", widget: "string", required: false}
-          - {name: "Facebook", label: "Facebook", widget: "string", required: false}
+          - name: "social"
+            label: "Social"
+            description: "Social Networks"
+            widget: "object"
+            required: false
+            fields:
+              - {name: "LinkedIn", label: "LinkedIn", widget: "string", required: false}
+              - {name: "Twitter", label: "Twitter", widget: "string", required: false}
+              - {name: "Instagram", label: "Instagram", widget: "string", required: false}
+              - {name: "Medium", label: "Medium", widget: "string", required: false}
+              - {name: "Facebook", label: "Facebook", widget: "string", required: false}
+              - {name: "Youtube", label: "Youtube", widget: "string", required: false}
+              - {name: "GitHub", label: "GitHub", widget: "string", required: false}
       - name: "integrations"
         label: "Integrations"
         file: "_collections/_settings/integrations.md"
@@ -256,3 +259,4 @@ collections:
           - {name: "google_analytics", label: "Google Analytics Tag", widget: "text", required: false}
           - {name: "google_maps", label: "Google Maps Key", widget: "string", required: false}
           - {name: "facebook_app_id", label: "Facebook App ID", widget: "string", required: false}
+          - {name: "newsletter", label: "Newsletter TAG", widget: "text", hint: 'Mailchimp, Mailerlite, etc", required: false}
