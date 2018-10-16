@@ -101,9 +101,11 @@ section {
   min-height: 15rem;
   padding-top: 2rem;
   background: #333;
-  color: #fff;
   h1 {
     font-size: 2rem;
+  }
+  &, a {
+    color: #fff;
   }
 }
 
