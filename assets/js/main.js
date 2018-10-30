@@ -40,9 +40,9 @@
 
     input.on('input', function(evt) {
       var needle = evt.target.value,
-          results = needle.length > 3 && window.search.map(function (page) {
+          results = needle.length > 3 && window.search.map(function(page) {
             return $.extend({}, page, { content: search(needle, page.content) });
-          }).filter(function (page) {
+          }).filter(function(page) {
             return !!page.content;
           });
 
@@ -51,7 +51,7 @@
   }());
 
   /* MUSTACHE */
-  $('script[type="x-tmpl-mustache"]').each(function (idx, elm) {
+  $('script[type="x-tmpl-mustache"]').each(function(idx, elm) {
     elm = $(elm);
     template = elm.attr('data-template');
     templates[template] = elm.html();
