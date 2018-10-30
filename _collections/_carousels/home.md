@@ -9,7 +9,7 @@ slides:
       title: This is a button!
       type: primary
       url: '#'
-    image: /assets/media/uploads/photo-1493780474015-ba834fd0ce2f.jpeg
+    image: /assets/media/uploads/7411f92fb70e26e668c225b45cc48823.jpg
     title: FAWSOME
   - body: >-
       but this one is cuter tho... cute like... really cute! in fact... it's so
