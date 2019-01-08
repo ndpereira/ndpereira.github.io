@@ -34,14 +34,6 @@ sections:
   label: Settings
   create: all
   match: "**/*"
-- type: directory
-  path: _posts
-  label: Posts
-  create: all
-  match: "**/*"
-- type: jekyll-posts
-  label: Posts
-  create: all
 - type: jekyll-pages
   label: Pages
   create: all
