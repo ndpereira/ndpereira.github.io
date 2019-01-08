@@ -40,7 +40,7 @@ sections:
   create: all
   match: "**/*"
 - type: jekyll-pages
-  label: Pages
+  label: Files
   create: all
 upload_dir: assets/media/uploads
 public_path: "/assets/media/uploads"
