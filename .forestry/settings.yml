@@ -10,37 +10,32 @@ sections:
   create: all
   match: "**/*"
 - type: directory
-  path: _pages
-  label: Pages
-  create: all
-  match: "**/*"
-- type: directory
-  path: _sections
+  path: _collections/_sections
   label: Sections
   create: all
   match: "**/*"
 - type: directory
-  path: _carousels
+  path: _collections/_carousels
   label: Carousels
   create: all
   match: "**/*"
 - type: directory
-  path: _navigation
+  path: _collections/_navigation
   label: Navigation
   create: all
   match: "**/*"
 - type: directory
-  path: _people
+  path: _collections/_people
   label: People
   create: all
   match: "**/*"
 - type: directory
-  path: _organizations
+  path: _collections/_organizations
   label: Organizations
   create: all
   match: "**/*"
 - type: directory
-  path: _settings
+  path: _collections/_settings
   label: Settings
   create: all
   match: "**/*"
