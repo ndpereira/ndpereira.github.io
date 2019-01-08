@@ -38,6 +38,7 @@ sections:
   path: _posts
   label: Posts
   create: all
+  match: "**/*"
 - type: jekyll-posts
   label: Posts
   create: all
