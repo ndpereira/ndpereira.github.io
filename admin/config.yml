@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: cdeath/cdeath.github.io
+  name: git-gateway
 
 media_folder: /assets/media/uploads
 publish_mode: editorial_workflow

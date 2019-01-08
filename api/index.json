@@ -1,13 +1,10 @@
----
-layout: null
----
 {
-  "news": "{{site.url | append: '/api/news'}}",
-  "pages": "{{site.url | append: '/api/pages'}}",
-  "sections": "{{site.url | append: '/api/sections'}}",
-  "navigation": "{{site.url | append: '/api/navigation'}}",
-  "people": "{{site.url | append: '/api/people'}}",
-  "organizations": "{{site.url | append: '/api/organizations'}}",
-  "settings": "{{site.url | append: '/api/settings'}}",
-  "search": "{{site.url | append: '/api/search'}}"
+  "news": "/api/news",
+  "pages": "/api/pages",
+  "sections": "/api/sections",
+  "navigation": "/api/navigation",
+  "people": "/api/people",
+  "organizations": "/api/organizations",
+  "settings": "/api/settings",
+  "search": "/api/search"
 }

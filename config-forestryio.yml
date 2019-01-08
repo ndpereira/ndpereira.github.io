@@ -9,7 +9,7 @@
   <title>Jekylify</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="lorem ipsum">
-  <meta property="og:url" content="/404.html">
+  <meta property="og:url" content="/config-forestryio.yml">
   <meta property="og:title" content="Jekylify">
   <meta property="og:description" content="lorem ipsum">
   
@@ -68,26 +68,38 @@
 </header>
   <main id="main" role="main">
     
-    <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+    ---
+collections_dir: _collections
+collections:
+  news:
+    output: true
+    permalink: ":year/:month/:day/:title"
+  pages:
+    output: true
+    permalink: ":slug/"
+  sections:
+    output: false
+  carousels:
+    output: false
+  navigation:
+    output: false
+  people:
+    output: false
+  organizations:
+    output: false
+  settings:
+    output: false
+defaults:
+- scope:
+    path: ''
+  values:
+    layout: default
+markdown: kramdown
+sass:
+  style: compressed
+plugins:
+- jekyll-feed
+timezone: Etc/UTC
 
   </main>
   <footer id="footer" role="contentinfo">
