@@ -1,57 +1,49 @@
 ---
 new_page_extension: md
-auto_deploy: false
+auto_deploy: true
 admin_path: 
 webhook_url: 
 sections:
 - type: directory
-  path: _news
+  path: _collections/_pages
+  label: Pages
+  create: all
+  match: "**/*"
+- type: directory
+  path: _collections/_news
   label: News
   create: all
   match: "**/*"
 - type: directory
-  path: _pages
-  label: Pages
-  create: all
-  match: "**/*"
-- type: directory
-  path: _sections
-  label: Sections
-  create: all
-  match: "**/*"
-- type: directory
-  path: _carousels
+  path: _collections/_carousels
   label: Carousels
   create: all
   match: "**/*"
 - type: directory
-  path: _navigation
+  path: _collections/_navigation
   label: Navigation
   create: all
   match: "**/*"
 - type: directory
-  path: _people
+  path: _collections/_people
   label: People
   create: all
   match: "**/*"
 - type: directory
-  path: _organizations
+  path: _collections/_organizations
   label: Organizations
   create: all
   match: "**/*"
 - type: directory
-  path: _settings
+  path: _collections/_settings
   label: Settings
   create: all
   match: "**/*"
-- type: jekyll-posts
-  label: Posts
-  create: all
 - type: jekyll-pages
-  label: Pages
+  label: Files
   create: all
-upload_dir: uploads
-public_path: "/uploads"
+upload_dir: assets/media/uploads
+public_path: "/assets/media/uploads"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
