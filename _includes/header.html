@@ -2,6 +2,8 @@
   <nav class="container">
     <h1 class="navbar-brand">
       <a href="/">
+        {% assign logo = "/assets/media/icon-cybersecurity.svg" %}
+        {% svg "{{logo}}" %}
         {% if settings.logo %}
           <img src="{{settings.logo}}" alt="{{settings.title}}" />
           <span class="sr-only">{{settings.title}}</span>
