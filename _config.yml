@@ -60,7 +60,6 @@ sass:
 # Plugins
 plugins:
   - jekyll-feed
-  - jekyll-inline-svg
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
