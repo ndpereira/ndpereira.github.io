@@ -2,7 +2,8 @@ backend:
   name: git-gateway
 
 media_folder: /assets/media/uploads
-#publish_mode: editorial_workflow
+
+publish_mode: editorial_workflow
 
 collections:
   - name: "posts"
