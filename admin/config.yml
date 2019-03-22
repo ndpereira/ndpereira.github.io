@@ -54,14 +54,6 @@ collections:
           - {name: "title", label: "Title", widget: "string"}
           - {name: "body", label: "Body", widget: "markdown", required: false}
           - {name: "image", label: "Image", widget: "image", required: false}
-          - name: "button"
-            label: "Button"
-            widget: "object"
-            required: false
-            fields:
-              - {name: "title", label: "Title", widget: "string"}
-              - {name: "url", label: "URL", widget: "string"}
-              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"], required: false}
 
       - name: "posts"
         label: "Posts"
