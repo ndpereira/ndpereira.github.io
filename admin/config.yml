@@ -26,16 +26,17 @@ collections:
     editor:
       preview: false
     fields:
-      - {name: "permalink", label: "Slug", widget: "string", required: false, hint: "Custom URL for this page (defaults to title-based slug)", required: false}
+      - {name: "permalink", label: "Slug", widget: "string", hint: "Custom URL for this page (defaults to title-based slug)", required: false}
       - {name: "title", label: "Title", widget: "string", hint: "The title of the page"}
-      - {name: "description", label: "Description", widget: "text", required: false, hint: "The description of the page for SEO (defaults to site description)", required: false}
-      - {name: "image", label: "Sharing Image", widget: "image", required: false, hint: "Page image for sharing on social networks (defaults to site image)", required: false}
-      - {name: "body", label: "Body", widget: "markdown", required: false, hint: "The content for the page", required: false}
+      - {name: "description", label: "Description", widget: "text", hint: "The description of the page for SEO (defaults to site description)", required: false}
+      - {name: "image", label: "Sharing Image", widget: "image", hint: "Page image for sharing on social networks (defaults to site image)", required: false}
+      - {name: "body", label: "Body", widget: "markdown", hint: "The content for the page", required: false}
       - name: "sections"
         label: "Sections"
         hint: "The content sections that will appear on the page"
         label_singular: "Section"
         widget: "list"
+        required: false
         fields:
           - {name: "section", label: "Section", widget: "relation", collection: "sections", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
           - {name: "carousel", label: "Carousel", widget: "relation", collection: "carousels", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
@@ -76,6 +77,7 @@ collections:
             label: "Numbers"
             label_singular: "Number"
             widget: "list"
+            required: false
             fields:
               - {name: "number", label: "Number", widget: "number", required: false}
               - {name: "prefix", label: "Prefix", widget: "string", required: false}
@@ -94,6 +96,7 @@ collections:
             label: "Clients"
             label_singular: "Client"
             widget: "list"
+            required: false
             fields:
               - {name: "organization", label: "Organization", widget: "relation", collection: "organizations", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
 
@@ -108,6 +111,7 @@ collections:
             label: "People"
             label_singular: "Person"
             widget: "list"
+            required: false
             fields:
               - {name: "person", label: "Person", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title", required: false}
 
@@ -193,6 +197,7 @@ collections:
             label: "Items"
             label_singular: "Item"
             widget: "list"
+            required: false
             fields:
               - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)", required: false}
               - {name: "page", label: "Page", widget: "relation", collection: "pages", displayFields: ["title"], searchFields: ["title"], valueField: "title", hint: "Choose a page...", required: false}
@@ -206,6 +211,7 @@ collections:
             label: "Items"
             label_singular: "Item"
             widget: "list"
+            required: false
             displayFields: ["page", "title", "url"]
             fields:
               - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)", required: false}
