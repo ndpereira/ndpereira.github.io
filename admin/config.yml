@@ -3,6 +3,7 @@ backend:
 
 media_folder: /assets/media/uploads
 #publish_mode: editorial_workflow
+
 collections:
   - name: "posts"
     label: "Posts"
@@ -16,7 +17,6 @@ collections:
       - {name: "title", label: "Title", widget: "string"}
       - {name: "image", label: "Featured Image", widget: "image", required: false}
       - {name: "body", label: "Body", widget: "markdown", required: false}
-      - {name: "author", label: "Author", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title", required: false}
 
   - name: "pages"
     label: "Pages"
