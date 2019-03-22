@@ -2,8 +2,8 @@
 title: Numbers
 numbers:
   - animate: true
-    number: '1000'
-    title: Things
+    number: 7
+    title: Artifacts
   - animate: true
     number: '9000'
     prefix: '>'
