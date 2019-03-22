@@ -1,5 +1,6 @@
 ---
 ---
+@import "colors";
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -156,7 +157,7 @@ section {
 }
 
 #news {
-  background: #12589d;
+  background: $blue;
   color: #fff;
   li:not(:last-child) {
     margin-bottom: 1rem;
@@ -186,7 +187,7 @@ section {
 }
 
 #clients {
-  background: indigo;
+  background: $purple;
   h1 {
     color: #fff;
   }

@@ -4,10 +4,10 @@ backend:
 media_folder: /assets/media/uploads
 #publish_mode: editorial_workflow
 collections:
-  - name: "news"
-    label: "News"
-    label_singular: "Article"
-    folder: "_collections/_news"
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "collections/_posts"
     create: true
     editor:
       preview: false
@@ -21,7 +21,7 @@ collections:
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
-    folder: "_collections/_pages"
+    folder: "collections/_pages"
     create: true
     editor:
       preview: false
@@ -48,7 +48,7 @@ collections:
     files:
       - name: "about"
         label: "About"
-        file: "_collections/_sections/about.md"
+        file: "collections/_sections/about.md"
         description: "About US"
         fields:
           - {name: "title", label: "Title", widget: "string"}
@@ -65,7 +65,7 @@ collections:
 
       - name: "news"
         label: "News"
-        file: "_collections/_sections/news.md"
+        file: "collections/_sections/news.md"
         description: "News"
         fields:
           - {name: "title", label: "Title", widget: "string"}
@@ -75,7 +75,7 @@ collections:
 
       - name: "numbers"
         label: "Numbers"
-        file: "_collections/_sections/numbers.md"
+        file: "collections/_sections/numbers.md"
         description: "Stats"
         fields:
           - {name: "title", label: "Title", widget: "string"}
@@ -93,7 +93,7 @@ collections:
 
       - name: "clients"
         label: "Clients"
-        file: "_collections/_sections/clients.md"
+        file: "collections/_sections/clients.md"
         description: "Clients"
         fields:
           - {name: "title", label: "Title", widget: "string"}
@@ -107,7 +107,7 @@ collections:
 
       - name: "team"
         label: "Team"
-        file: "_collections/_sections/team.md"
+        file: "collections/_sections/team.md"
         description: "Team Members"
         fields:
           - {name: "title", label: "Title", widget: "string"}
@@ -122,7 +122,7 @@ collections:
   - name: "carousels"
     label: "Carousels"
     label_singular: "Carousel"
-    folder: "_collections/_carousels"
+    folder: "collections/_carousels"
     create: true
     editor:
       preview: false
@@ -149,7 +149,7 @@ collections:
   - name: "people"
     label: "People"
     label_singular: "Person"
-    folder: "_collections/_people"
+    folder: "collections/_people"
     create: true
     editor:
       preview: false
@@ -175,7 +175,7 @@ collections:
   - name: "organizations"
     label: "Organizations"
     label_singular: "Organization"
-    folder: "_collections/_organizations"
+    folder: "collections/_organizations"
     create: true
     editor:
       preview: false
@@ -194,7 +194,7 @@ collections:
     files:
       - name: "header"
         label: "Header"
-        file: "_collections/_navigation/header.md"
+        file: "collections/_navigation/header.md"
         description: "Header Navigation"
         fields:
           - name: "items"
@@ -207,7 +207,7 @@ collections:
               - {name: "url", label: "External URL", widget: "string", default: "https://", hint: "...or link to an external URL", required: false}
       - name: "footer"
         label: "Footer"
-        file: "_collections/_navigation/footer.md"
+        file: "collections/_navigation/footer.md"
         description: "Footer Navigation"
         fields:
           - name: "items"
@@ -228,7 +228,7 @@ collections:
     files:
       - name: "general"
         label: "General"
-        file: "_collections/_settings/general.md"
+        file: "collections/_settings/general.md"
         description: "General Site Settings"
         fields:
           - {name: "title", label: "Site Title", widget: "string"}
@@ -253,7 +253,7 @@ collections:
               - {name: "GitHub", label: "GitHub", widget: "string", required: false}
       - name: "integrations"
         label: "Integrations"
-        file: "_collections/_settings/integrations.md"
+        file: "collections/_settings/integrations.md"
         description: "3rd Party Integrations"
         fields:
           - {name: "google_analytics", label: "Google Analytics Tag", widget: "text", required: false}

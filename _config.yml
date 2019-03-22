@@ -23,9 +23,9 @@
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Collections
-collections_dir: _collections
+collections_dir: collections
 collections:
-  news:
+  posts:
     output: true
     permalink: :year/:month/:day/:title
   pages:
@@ -58,15 +58,16 @@ sass:
     style: compressed
 
 # Plugins
-plugins:
-  - jekyll-feed
+#plugins:
+#  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
+exclude:
+  - run.sh
+  - Gemfile
+  - Gemfile.lock
 #   - node_modules
 #   - vendor/bundle/
 #   - vendor/cache/
