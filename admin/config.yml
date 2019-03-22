@@ -8,12 +8,12 @@ collections:
     label: "Posts"
     label_singular: "Post"
     folder: "collections/_posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
     editor:
       preview: false
     fields:
       - {name: "title", label: "Title", widget: "string"}
-      - {name: "date", label: "Publish Date", widget: "datetime"}
       - {name: "image", label: "Featured Image", widget: "image", required: false}
       - {name: "body", label: "Body", widget: "markdown", required: false}
       - {name: "author", label: "Author", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title", required: false}
@@ -26,19 +26,19 @@ collections:
     editor:
       preview: false
     fields:
-      - {name: "permalink", label: "Slug", widget: "string", required: false, hint: "Custom URL for this page (defaults to title-based slug)"}
+      - {name: "permalink", label: "Slug", widget: "string", required: false, hint: "Custom URL for this page (defaults to title-based slug)", required: false}
       - {name: "title", label: "Title", widget: "string", hint: "The title of the page"}
-      - {name: "description", label: "Description", widget: "text", required: false, hint: "The description of the page for SEO (defaults to site description)"}
-      - {name: "body", label: "Body", widget: "markdown", required: false, hint: "The content for the page"}
+      - {name: "description", label: "Description", widget: "text", required: false, hint: "The description of the page for SEO (defaults to site description)", required: false}
+      - {name: "image", label: "Sharing Image", widget: "image", required: false, hint: "Page image for sharing on social networks (defaults to site image)", required: false}
+      - {name: "body", label: "Body", widget: "markdown", required: false, hint: "The content for the page", required: false}
       - name: "sections"
         label: "Sections"
         hint: "The content sections that will appear on the page"
         label_singular: "Section"
         widget: "list"
         fields:
-          - {name: "section", label: "Section", widget: "relation", collection: "sections", displayFields: ["title"], searchFields: ["title"], valueField: "title"}
-          - {name: "carousel", label: "Carousel", widget: "relation", collection: "carousels", displayFields: ["title"], searchFields: ["title"], valueField: "title"}
-      - {name: "image", label: "Sharing Image", widget: "image", required: false, hint: "Page image for sharing on social networks (defaults to site image)"}
+          - {name: "section", label: "Section", widget: "relation", collection: "sections", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
+          - {name: "carousel", label: "Carousel", widget: "relation", collection: "carousels", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
 
   - name: "sections"
     label: "Sections"
@@ -53,7 +53,7 @@ collections:
         fields:
           - {name: "title", label: "Title", widget: "string"}
           - {name: "body", label: "Body", widget: "markdown", required: false}
-          - {name: "image", label: "Image", widget: "image"}
+          - {name: "image", label: "Image", widget: "image", required: false}
           - name: "button"
             label: "Button"
             widget: "object"
@@ -61,17 +61,17 @@ collections:
             fields:
               - {name: "title", label: "Title", widget: "string"}
               - {name: "url", label: "URL", widget: "string"}
-              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"]}
+              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"], required: false}
 
-      - name: "news"
-        label: "News"
-        file: "collections/_sections/news.md"
-        description: "News"
+      - name: "posts"
+        label: "Posts"
+        file: "collections/_sections/posts.md"
+        description: "Posts"
         fields:
           - {name: "title", label: "Title", widget: "string"}
           - {name: "body", label: "Body", widget: "markdown", required: false}
-          - {name: "view", label: "View", widget: "select", options: ["grid", "list"], default: "grid"}
-          - {name: "items", label: "Items", widget: "number", default: "6"}
+          - {name: "view", label: "View", widget: "select", options: ["grid", "list"], default: "grid", required: false}
+          - {name: "items", label: "Items", widget: "number", default: "6", required: false}
 
       - name: "numbers"
         label: "Numbers"
@@ -85,10 +85,10 @@ collections:
             label_singular: "Number"
             widget: "list"
             fields:
-              - {name: "number", label: "Number", widget: "number"}
-              - {name: "prefix", label: "Prefix", widget: "string"}
-              - {name: "suffix", label: "Suffix", widget: "string"}
-              - {name: "title", label: "Title", widget: "string"}
+              - {name: "number", label: "Number", widget: "number", required: false}
+              - {name: "prefix", label: "Prefix", widget: "string", required: false}
+              - {name: "suffix", label: "Suffix", widget: "string", required: false}
+              - {name: "title", label: "Title", widget: "string", required: false}
               - {name: "animate", label: "Animate", widget: "boolean", default: true}
 
       - name: "clients"
@@ -103,7 +103,7 @@ collections:
             label_singular: "Client"
             widget: "list"
             fields:
-              - {name: "organization", label: "Organization", widget: "relation", collection: "organizations", displayFields: ["title"], searchFields: ["title"], valueField: "title"}
+              - {name: "organization", label: "Organization", widget: "relation", collection: "organizations", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
 
       - name: "team"
         label: "Team"
@@ -117,7 +117,7 @@ collections:
             label_singular: "Person"
             widget: "list"
             fields:
-              - {name: "person", label: "Person", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title"}
+              - {name: "person", label: "Person", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title", required: false}
 
   - name: "carousels"
     label: "Carousels"
@@ -134,17 +134,17 @@ collections:
         widget: "list"
         required: false
         fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown"}
-          - {name: "image", label: "Image", widget: "image"}
+          - {name: "title", label: "Title", widget: "string", required: false}
+          - {name: "body", label: "Body", widget: "markdown", required: false}
+          - {name: "image", label: "Image", widget: "image", required: false}
           - name: "button"
             label: "Button"
             widget: "object"
             required: false
             fields:
-              - {name: "title", label: "Title", widget: "string"}
-              - {name: "url", label: "URL", widget: "string"}
-              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"]}
+              - {name: "title", label: "Title", widget: "string", required: false}
+              - {name: "url", label: "URL", widget: "string", required: false}
+              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"], required: false}
 
   - name: "people"
     label: "People"
@@ -165,12 +165,12 @@ collections:
         widget: "object"
         required: false
         fields:
-          - {name: "Email", label: "Email", widget: "string"}
-          - {name: "LinkedIn", label: "LinkedIn", widget: "string"}
-          - {name: "Twitter", label: "Twitter", widget: "string"}
-          - {name: "Instagram", label: "Instagram", widget: "string"}
-          - {name: "Medium", label: "Medium", widget: "string"}
-          - {name: "Facebook", label: "Facebook", widget: "string"}
+          - {name: "Email", label: "Email", widget: "string", required: false}
+          - {name: "LinkedIn", label: "LinkedIn", widget: "string", required: false}
+          - {name: "Twitter", label: "Twitter", widget: "string", required: false}
+          - {name: "Instagram", label: "Instagram", widget: "string", required: false}
+          - {name: "Medium", label: "Medium", widget: "string", required: false}
+          - {name: "Facebook", label: "Facebook", widget: "string", required: false}
 
   - name: "organizations"
     label: "Organizations"
@@ -184,7 +184,7 @@ collections:
       - {name: "logo", label: "Logo", widget: "image", required: false}
       - {name: "url", label: "URL", widget: "string", required: false}
       - {name: "industry", label: "Industry", widget: "string", required: false}
-      - {name: "type", label: "Type", widget: "select", options: ["Company", "Brand", "Client", "Sponsor", "Partner", "Media Partner"]}
+      - {name: "type", label: "Type", widget: "select", options: ["Company", "Brand", "Client", "Sponsor", "Partner", "Media Partner"], required: false}
 
   - name: "navigation"
     label: "Navigation"
@@ -232,7 +232,7 @@ collections:
         description: "General Site Settings"
         fields:
           - {name: "title", label: "Site Title", widget: "string"}
-          - {name: "description", label: "Site Description", widget: "text"}
+          - {name: "description", label: "Site Description", widget: "text", required: false}
           - {name: "logo", label: "Site Logo", widget: "image", required: false}
           - {name: "image", label: "Share Image", widget: "image", required: false}
           - {name: "search", label: "Site Search", widget: "boolean", default: true}

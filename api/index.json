@@ -1,5 +1,5 @@
 {
-  "news": "/api/news",
+  "news": "/api/posts",
   "pages": "/api/pages",
   "sections": "/api/sections",
   "navigation": "/api/navigation",
