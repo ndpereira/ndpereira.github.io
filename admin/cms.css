@@ -1,7 +1,7 @@
 aside a span { display: inline-flex !important; justify-content: center; align-items: center }
 aside a span svg { display: none !important}
 aside a span::before { font-family: "Font Awesome 5 Free"; font-size: 1rem; }
-aside a[href="#/collections/news"] span::before { content: "\f5a1"; }
+aside a[href="#/collections/posts"] span::before { content: "\f5a1"; }
 aside a[href="#/collections/pages"] span::before { content: "\f15c"; }
 aside a[href="#/collections/sections"] span::before { content: "\f550"; }
 aside a[href="#/collections/navigation"] span::before { content: "\f0e8"; }
