@@ -150,7 +150,7 @@ collections:
       preview: false
     fields:
       - {name: "title", label: "Name", widget: "string"}
-      - {name: "logo", label: "Logo", widget: "image", pattern: ["\.(png|svg)$", ".svg, .png"], required: false, hint: "Use SVG or alternatively PNG, but don"t forget to replace it later."}
+      - {name: "logo", label: "Logo", widget: "image", pattern: ['\.(png|svg)$', '.svg, .png'], required: false, hint: "Use SVG or alternatively PNG, but don"t forget to replace it later."}
       - {name: "body", label: "Bio", widget: "markdown", required: false}
       - {name: "url", label: "URL", widget: "string", required: false}
       - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true, required: false}
@@ -439,7 +439,7 @@ collections:
         fields:
           - {name: "title", label: "Title", widget: "string"}
           - {name: "description", label: "Description", widget: "text"}
-          - {name: "logo", label: "Logo", widget: "image", pattern: ["\.svg$", ".svg"]}
+          - {name: "logo", label: "Logo", widget: "image", pattern: ['\.svg$', '.svg']}
           - {name: "image", label: "Share Image", widget: "image", required: false}
           - {name: "search", label: "Site Search", widget: "boolean", default: true}
           - name: "cookies"
