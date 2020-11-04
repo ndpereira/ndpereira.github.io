@@ -1,5 +1,6 @@
 backend:
   name: github
+  repo: cdeath/cdeath.github.io 
 
 media_folder: "/assets/media/"
 public_folder: "/assets/media/"
@@ -307,16 +308,17 @@ collections:
           - {name: "style", label: "Inline Style", widget: "string", required: false}
           - {name: "template", label: "Custom Template", widget: "string", required: false}
 
-  - name: "navigation"
-    label: "Navigation"
+  - name: "menus"
+    label: "Menus"
+    label_singular: "Menu"
     delete: false
     editor:
       preview: false
     files:
       - name: "header"
         label: "Header"
-        file: "collections/_navigation/header.md"
-        description: "Header Navigation"
+        file: "collections/_menus/header.md"
+        description: "Header Menu"
         fields:
           - name: "items"
             label: "Items"
@@ -360,8 +362,8 @@ collections:
 
       - name: "footer"
         label: "Footer"
-        file: "collections/_navigation/footer.md"
-        description: "Footer Navigation"
+        file: "collections/_menus/footer.md"
+        description: "Footer Menu"
         fields:
           - name: "items"
             label: "Items"
