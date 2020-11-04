@@ -1,22 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
 
-media_folder: /assets/media/uploads
-#publish_mode: editorial_workflow
+media_folder: "/assets/media/"
+public_folder: "/assets/media/"
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    label_singular: "Post"
-    folder: "collections/_posts"
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - {name: "title", label: "Title", widget: "string"}
-      - {name: "image", label: "Featured Image", widget: "image", required: false}
-      - {name: "body", label: "Body", widget: "markdown", required: false}
 
   - name: "pages"
     label: "Pages"
@@ -26,161 +14,296 @@ collections:
     editor:
       preview: false
     fields:
-      - {name: "permalink", label: "Slug", widget: "string", hint: "Custom URL for this page (defaults to title-based slug)", required: false}
-      - {name: "title", label: "Title", widget: "string", hint: "The title of the page"}
-      - {name: "description", label: "Description", widget: "text", hint: "The description of the page for SEO (defaults to site description)", required: false}
-      - {name: "image", label: "Sharing Image", widget: "image", hint: "Page image for sharing on social networks (defaults to site image)", required: false}
-      - {name: "body", label: "Body", widget: "markdown", hint: "The content for the page", required: false}
+      - {name: "permalink", label: "Slug", widget: "string", hint: "Custom URL for the page (defaults to title-based slug)", required: false}
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
+      - {name: "image", label: "Image", widget: "image", hint: "Image for sharing on social networks (defaults to site image)", required: false}
+      - {name: "body", label: "Body", widget: "markdown", hint: "The description of the page for SEO (defaults to site description)", required: false}
       - name: "sections"
         label: "Sections"
-        hint: "The content sections that will appear on the page"
         label_singular: "Section"
+        hint: "The content sections that will appear on the page"
         widget: "list"
         required: false
         fields:
-          - {name: "section", label: "Section", widget: "relation", collection: "sections", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
-          - {name: "carousel", label: "Carousel", widget: "relation", collection: "carousels", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
-
-  - name: "sections"
-    label: "Sections"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "about"
-        label: "About"
-        file: "collections/_sections/about.md"
-        description: "About US"
-        fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - {name: "image", label: "Image", widget: "image", required: false}
-
-      - name: "posts"
-        label: "Posts"
-        file: "collections/_sections/posts.md"
-        description: "Posts"
-        fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - {name: "view", label: "View", widget: "select", options: ["grid", "list"], default: "grid", required: false}
-          - {name: "items", label: "Items", widget: "number", default: "6", required: false}
-
-      - name: "numbers"
-        label: "Numbers"
-        file: "collections/_sections/numbers.md"
-        description: "Stats"
-        fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - name: "numbers"
-            label: "Numbers"
-            label_singular: "Number"
+          - name: "blocks"
+            label: "Blocks"
+            label_singular: "Block"
             widget: "list"
+            collapsed: true
             required: false
-            fields:
-              - {name: "number", label: "Number", widget: "number", required: false}
-              - {name: "prefix", label: "Prefix", widget: "string", required: false}
-              - {name: "suffix", label: "Suffix", widget: "string", required: false}
-              - {name: "title", label: "Title", widget: "string", required: false}
-              - {name: "animate", label: "Animate", widget: "boolean", default: true}
-
-      - name: "clients"
-        label: "Clients"
-        file: "collections/_sections/clients.md"
-        description: "Clients"
-        fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - name: "clients"
-            label: "Clients"
-            label_singular: "Client"
-            widget: "list"
-            required: false
-            fields:
-              - {name: "organization", label: "Organization", widget: "relation", collection: "organizations", displayFields: ["title"], searchFields: ["title"], valueField: "title", required: false}
-
-      - name: "team"
-        label: "Team"
-        file: "collections/_sections/team.md"
-        description: "Team Members"
-        fields:
-          - {name: "title", label: "Title", widget: "string"}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - name: "people"
-            label: "People"
-            label_singular: "Person"
-            widget: "list"
-            required: false
-            fields:
-              - {name: "person", label: "Person", widget: "relation", collection: "people", displayFields: ["title", "company", "position"], searchFields: ["title", "company", "position"], valueField: "title", required: false}
-
-  - name: "carousels"
-    label: "Carousels"
-    label_singular: "Carousel"
-    folder: "collections/_carousels"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - {name: "title", label: "Name", widget: "string", hint: "The name of the carousel"}
-      - name: "slides"
-        label: "Slides"
-        label_singular: "Slide"
-        widget: "list"
-        required: false
-        fields:
-          - {name: "title", label: "Title", widget: "string", required: false}
-          - {name: "body", label: "Body", widget: "markdown", required: false}
-          - {name: "image", label: "Image", widget: "image", required: false}
-          - name: "button"
-            label: "Button"
+            types:
+              - name: "text"
+                label: "Text"
+                widget: "object"
+                fields:
+                  - {name: "body", label: "Body", widget: "markdown", required: false}
+                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+              - name: "image"
+                label: "Image"
+                widget: "object"
+                fields:
+                  - {name: "src", label: "Image", widget: "image", required: false}
+                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+              - name: "collection"
+                label: "Collection"
+                widget: "object"
+                fields:
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"]}
+                  - {name: "collection", label: "Items from collection", widget: "string"}
+                  - name: "filters"
+                    label: "Filters"
+                    label_singular: "Filter"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - {name: "key", label: "Key", widget: "string"}
+                      - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"]}
+                      - {name: "value", label: "Value", widget: "string"}
+                  - {name: "template", label: "Items template", widget: "string", required: false}
+                  - {name: "perPage", label: "Items per page", widget: "number", default: 1}
+                  - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
+                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+              - name: "list"
+                label: "List"
+                widget: "object"
+                fields:
+                  - {name: "type", label: "Type", widget: "select", options: ["unordered-list", "ordered-list", "definition-list"]}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"]}
+                  - name: "items"
+                    label: "Items"
+                    label_singular: "Item"
+                    widget: "list"
+                    fields:
+                      - {name: "title", label: "Title", widget: "string"}
+                      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
+                      - {name: "image", label: "Image", widget: "image", required: false}
+                      - {name: "body", label: "Body", widget: "markdown", required: false}
+                      - {name: "url", label: "URL", widget: "string", required: false}
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                  - {name: "template", label: "Items template", widget: "string", required: false}
+                  - {name: "perPage", label: "Items per page", widget: "number", default: 1}
+                  - {name: "max", label: "Max Items", widget: "number", default: 0, required: false, hint: "Leave at 0 for no limit"}
+                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+              - name: "form"
+                label: "Form"
+                widget: "object"
+                fields:
+                  - {name: "name", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+              - name: "map"
+                label: "Map"
+                widget: "object"
+                fields:
+                  - name: "markers"
+                    label: "Markers"
+                    label_singular: "Marker"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - {name: "name", label: "Name", widget: "string", required: false}
+                      - {name: "latitude", label: "Latitude", widget: "string"}
+                      - {name: "longitude", label: "Longitude", widget: "string"}
+                      - {name: "streetAddress1", label: "Street Address 1", widget: "string", required: false}
+                      - {name: "streetAddress2", label: "Street Address 2", widget: "string", required: false}
+                      - {name: "postalCode", label: "Postal Code", widget: "string", required: false}
+                      - {name: "addressLocality", label: "Locality", widget: "string", required: false}
+                      - {name: "addressCountry", label: "Country", widget: "string", required: false}
+                      - {name: "description", label: "Description", widget: "markdown", required: false}
+                      - {name: "url", label: "URL", widget: "string", required: false}
+                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "template", label: "Template", widget: "string", required: false}
+          - {name: "script", label: "JavaScript", widget: "text", required: false}
+          - name: "background"
+            label: "Background"
             widget: "object"
+            collapsed: true
             required: false
             fields:
-              - {name: "title", label: "Title", widget: "string", required: false}
-              - {name: "url", label: "URL", widget: "string", required: false}
-              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "link"], required: false}
-
-  - name: "people"
-    label: "People"
-    label_singular: "Person"
-    folder: "collections/_people"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - {name: "title", label: "Name", widget: "string"}
-      - {name: "company", label: "Company", widget: "string", required: false}
-      - {name: "position", label: "Position", widget: "string", required: false}
-      - {name: "image", label: "Image", widget: "image", required: false}
-      - {name: "author", label: "Is an Author?", widget: "boolean", default: false}
-      - name: "contacts"
-        label: "Contacts"
-        description: "Public Contacts"
-        widget: "object"
-        required: false
-        fields:
-          - {name: "Email", label: "Email", widget: "string", required: false}
-          - {name: "LinkedIn", label: "LinkedIn", widget: "string", required: false}
-          - {name: "Twitter", label: "Twitter", widget: "string", required: false}
-          - {name: "Instagram", label: "Instagram", widget: "string", required: false}
-          - {name: "Medium", label: "Medium", widget: "string", required: false}
-          - {name: "Facebook", label: "Facebook", widget: "string", required: false}
+              - {name: "image", label: "Image", widget: "image", required: false}
+              - {name: "Color", label: "Color", widget: "string", required: false}
+              - name: "gradient"
+                label: "Gradient"
+                widget: "object"
+                collapsed: true
+                required: false
+                fields:
+                  - {name: "type", label: "Type", widget: "select", options: ["linear", "radial"], default: "linear", required: false}
+                  - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], default: "↘", required: false}
+                  - name: "colors"
+                    label: "Color Stops"
+                    label_singular: "Color Stop"
+                    widget: "list"
+                    fields:
+                      - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true}
 
   - name: "organizations"
     label: "Organizations"
     label_singular: "Organization"
     folder: "collections/_organizations"
+    slug: "{{slug}}"
+    media_folder: "{{media_folder}}/organizations/"
+    public_folder: "{{public_folder}}/organizations/"
     create: true
     editor:
       preview: false
     fields:
       - {name: "title", label: "Name", widget: "string"}
-      - {name: "logo", label: "Logo", widget: "image", required: false}
+      - {name: "logo", label: "Logo", widget: "image", pattern: ["\.(png|svg)$", ".svg, .png"], required: false, hint: "Use SVG or alternatively PNG, but don"t forget to replace it later."}
+      - {name: "body", label: "Bio", widget: "markdown", required: false}
       - {name: "url", label: "URL", widget: "string", required: false}
-      - {name: "industry", label: "Industry", widget: "string", required: false}
-      - {name: "type", label: "Type", widget: "select", options: ["Company", "Brand", "Client", "Sponsor", "Partner", "Media Partner"], required: false}
+      - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true, required: false}
+      - name: "locations"
+        label: "Locations"
+        label_singular: "Location"
+        widget: "list"
+        summary: "{{fields.addressLocality}}, {{fields.addressCountry}}"
+        required: false
+        fields:
+          - {name: "name", label: "Name", widget: "string", required: false}
+          - {name: "streetAddress1", label: "Street Address 1", widget: "string", required: false}
+          - {name: "streetAddress2", label: "Street Address 2", widget: "string", required: false}
+          - {name: "postalCode", label: "Postal Code", widget: "string", required: false}
+          - {name: "addressLocality", label: "Locality", widget: "string"}
+          - {name: "addressCountry", label: "Country", widget: "string"}
+          - {name: "latitude", label: "Latitude", widget: "string", required: false}
+          - {name: "longitude", label: "Longitude", widget: "string", required: false}
+      - name: "social"
+        label: "Social"
+        label_singular: "Profile"
+        widget: "list"
+        summary: "{{fields.type}}: {{fields.url}}"
+        required: false
+        fields:
+          - {name: "type", label: "Type", widget: "relation", collection: "social", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
+          - {name: "url", label: "URL", widget: "string"}
+      - name: "style"
+        label: "Style"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "style", label: "Inline Style", widget: "string", required: false}
+          - {name: "template", label: "Custom Template", widget: "string", required: false}
+
+  - name: "people"
+    label: "People"
+    label_singular: "Person"
+    folder: "collections/_people"
+    slug: "{{slug}}"
+    media_folder: "{{media_folder}}/people/"
+    public_folder: "{{public_folder}}/people/"
+    summary: "{{title}}, {{position}} @ {{organizations.0}}"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {name: "title", label: "Name", widget: "string"}
+      - {name: "image", label: "Photo", widget: "image", required: false}
+      - {name: "body", label: "Bio", widget: "markdown", required: false}
+      - {name: "position", label: "Position", widget: "string"}
+      - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true, required: false}
+      - name: "location"
+        label: "Location"
+        widget: "object"
+        summary: "{{fields.addressLocality}}, {{fields.addressCountry}}"
+        required: false
+        fields:
+          - {name: "addressLocality", label: "Locality", widget: "string"}
+          - {name: "addressCountry", label: "Country", widget: "string"}
+      - name: "social"
+        label: "Social"
+        label_singular: "Profile"
+        widget: "list"
+        summary: "{{fields.type}}: {{fields.url}}"
+        required: false
+        fields:
+          - {name: "type", label: "Type", widget: "relation", collection: "social", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
+          - {name: "url", label: "URL", widget: "string"}
+      - {name: "order", label: "Order", widget: "string", required: false}
+      - name: "style"
+        label: "Style"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "style", label: "Inline Style", widget: "string", required: false}
+          - {name: "template", label: "Custom Template", widget: "string", required: false}
+
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "Testimonial"
+    folder: "collections/_testimonials"
+    identifier_field: "{{author.0}}"
+    slug: "{{slug}}"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - name: "author"
+        label: "Author"
+        widget: "list"
+        max: 1
+        types:
+          - {name: "person", label: "Person", widget: "relation", collection: "people", display_fields: ["title", "organization"], search_fields: ["title", "organization"], value_field: "title"}
+          - {name: "organization", label: "Organization", widget: "relation", collection: "organizations", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
+      - {name: "image", label: "Image", widget: "image", hint: "Defaults to person avatar or company logo", required: false}
+      - {name: "body", label: "Testimonial", widget: "markdown", required: false}
+      - name: "style"
+        label: "Style"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "style", label: "Inline Style", widget: "string", required: false}
+          - {name: "template", label: "Custom Template", widget: "string", required: false}
+
+  - name: "forms"
+    label: "Forms"
+    widget: "object"
+    fields:
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
+      - {name: "image", label: "Image", widget: "image", required: false}
+      - {name: "body", label: "Body", widget: "markdown", required: false}
+      - name: "fields"
+        label: "Fields"
+        label_singular: "Field"
+        widget: "list"
+        fields:
+          - {name: "name", label: "Name", widget: "string"}
+          - {name: "layout", label: "Layout", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"], default: "text"}
+          - {name: "value", label: "Value", widget: "string", required: false}
+          - {name: "placeholder", label: "Placeholder", widget: "string", required: false}
+          - name: "attributes"
+            label: "Attributes"
+            label_singular: "Attribute"
+            widget: "list"
+            required: false
+            fields:
+              - {name: "name", label: "Name", widget: "select", options: ["required", "readonly", "disabled", "checked", "multiple", "autocomplete", "autofocus", "minlength", "maxlength", "min", "max", "step", "pattern", "accept", "size", "rows", "cols", "width", "height", "data"], default: "required"}
+              - {name: "value", label: "Value", widget: "text"}
+      - name: "attributes"
+        label: "Attributes"
+        label_singular: "Attribute"
+        widget: "list"
+        required: false
+        fields:
+          - {name: "name", label: "Name", widget: "select", options: ["action", "method", "enctype", "accept-charset", "name", "target", "novalidate", "autocomplete"], default: "required"}
+          - {name: "value", label: "Value", widget: "text"}
+      - name: "style"
+        label: "Style"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "style", label: "Inline Style", widget: "string", required: false}
+          - {name: "template", label: "Custom Template", widget: "string", required: false}
 
   - name: "navigation"
     label: "Navigation"
@@ -199,9 +322,40 @@ collections:
             widget: "list"
             required: false
             fields:
-              - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)", required: false}
-              - {name: "page", label: "Page", widget: "relation", collection: "pages", displayFields: ["title"], searchFields: ["title"], valueField: "title", hint: "Choose a page...", required: false}
-              - {name: "url", label: "External URL", widget: "string", default: "https://", hint: "...or link to an external URL", required: false}
+              - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+              - {name: "description", label: "Description", widget: "string"}
+              - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
+              - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
+              - name: "subitems"
+                label: "Sub Items"
+                label_singular: "Sub Item"
+                widget: "list"
+                required: false
+                fields:
+                  - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+                  - {name: "description", label: "Description", widget: "string"}
+                  - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
+                  - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
+          - name: "ctas"
+            label: "Call to actions"
+            label_singular: "Call to action"
+            widget: "list"
+            required: false
+            fields:
+              - {name: "title", label: "Label", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"]}
+              - {name: "outline", label: "Outline?", widget: boolean, required: false}
+              - name: "actions"
+                label: "Actions"
+                hint: "Action for the button"
+                label_singular: "Action"
+                widget: "list"
+                required: false
+                types:
+                  - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                  - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
+                  - {name: "modal", label: "Trigger a modal", widget: "relation", collection: "modals", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+
       - name: "footer"
         label: "Footer"
         file: "collections/_navigation/footer.md"
@@ -212,11 +366,63 @@ collections:
             label_singular: "Item"
             widget: "list"
             required: false
-            displayFields: ["page", "title", "url"]
             fields:
-              - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)", required: false}
-              - {name: "page", label: "Page", widget: "relation", collection: "pages", displayFields: ["title"], searchFields: ["title"], valueField: "title", hint: "Choose a page...", required: false}
-              - {name: "url", label: "External URL", widget: "string", default: "https://", hint: "...or link to an external URL", required: false}
+              - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+              - {name: "description", label: "Description", widget: "string"}
+              - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
+              - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
+              - name: "subitems"
+                label: "Sub Items"
+                label_singular: "Sub Item"
+                widget: "list"
+                required: false
+                fields:
+                  - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+                  - {name: "description", label: "Description", widget: "string"}
+                  - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
+                  - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
+
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    folder: "collections/_categories"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {name: "title", label: "Title", widget: "string"}
+
+  - name: "relationships"
+    label: "Relationships"
+    label_singular: "Relationship"
+    folder: "collections/_relationships"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {name: "title", label: "Name", widget: "string"}
+
+  - name: "social"
+    label: "Social"
+    label_singular: "Channel"
+    folder: "collections/_social"
+    media_folder: "{{media_folder}}/social/"
+    public_folder: "{{public_folder}}/social/"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {name: "title", label: "Name", widget: "string"}
+
+  - name: "templates"
+    label: "Templates"
+    label_singular: "Template"
+    folder: "collections/_templates"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {name: "title", label: "Title", widget: "string"}
 
   - name: "settings"
     label: "Settings"
@@ -227,34 +433,67 @@ collections:
       - name: "general"
         label: "General"
         file: "collections/_settings/general.md"
-        description: "General Site Settings"
+        description: "Site Settings"
+        media_folder: "{{media_folder}}/organizations/"
+        public_folder: "{{public_folder}}/organizations/"
         fields:
-          - {name: "title", label: "Site Title", widget: "string"}
-          - {name: "description", label: "Site Description", widget: "text", required: false}
-          - {name: "logo", label: "Site Logo", widget: "image", required: false}
+          - {name: "title", label: "Title", widget: "string"}
+          - {name: "description", label: "Description", widget: "text"}
+          - {name: "logo", label: "Logo", widget: "image", pattern: ["\.svg$", ".svg"]}
           - {name: "image", label: "Share Image", widget: "image", required: false}
           - {name: "search", label: "Site Search", widget: "boolean", default: true}
-          - {name: "email", label: "Site Email", widget: "string", required: false}
-          - {name: "phone", label: "Site Phone Number", widget: "string", required: false}
-          - name: "social"
-            label: "Social"
-            description: "Social Networks"
+          - name: "cookies"
+            label: "Cookies"
+            description: "EU cookie consent policy"
             widget: "object"
             required: false
             fields:
-              - {name: "LinkedIn", label: "LinkedIn", widget: "string", required: false}
-              - {name: "Twitter", label: "Twitter", widget: "string", required: false}
-              - {name: "Instagram", label: "Instagram", widget: "string", required: false}
-              - {name: "Medium", label: "Medium", widget: "string", required: false}
-              - {name: "Facebook", label: "Facebook", widget: "string", required: false}
-              - {name: "Youtube", label: "Youtube", widget: "string", required: false}
-              - {name: "GitHub", label: "GitHub", widget: "string", required: false}
+            - {name: "message", label: "Cookie warning message", widget: "markdown", default: "This site uses cookies.", required: false}
+            - {name: "button", label: "Cookie warning button", widget: "string", default: "OK", required: false}
+      - name: "contacts"
+        label: "Contacts"
+        file: "collections/_settings/contacts.md"
+        description: "Contacts"
+        fields:
+          - name: "locations"
+            label: "Locations"
+            label_singular: "Location"
+            widget: "list"
+            summary: "{{fields.addressLocality}}, {{fields.addressCountry}}"
+            required: false
+            fields:
+              - {name: "name", label: "Name", widget: "string"}
+              - {name: "streetAddress1", label: "Street Address 1", widget: "string", required: false}
+              - {name: "streetAddress2", label: "Street Address 2", widget: "string", required: false}
+              - {name: "postalCode", label: "Postal Code", widget: "string", required: false}
+              - {name: "addressLocality", label: "Locality", widget: "string"}
+              - {name: "addressCountry", label: "Country", widget: "string"}
+              - {name: "latitude", label: "Latitude", widget: "string", required: false}
+              - {name: "longitude", label: "Longitude", widget: "string", required: false}
+              - {name: "email", label: "Email", widget: "string", required: false}
+              - {name: "telephone", label: "Phone Number", widget: "string", required: false}
+          - name: "social"
+            label: "Social"
+            label_singular: "Profile"
+            description: "Social"
+            widget: "list"
+            summary: "{{fields.type}}: {{fields.url}}"
+            required: false
+            fields:
+              - {name: "type", label: "Type", widget: "relation", collection: "social", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
+              - {name: "url", label: "URL", widget: "string"}
       - name: "integrations"
         label: "Integrations"
         file: "collections/_settings/integrations.md"
         description: "3rd Party Integrations"
         fields:
-          - {name: "google_analytics", label: "Google Analytics Tag", widget: "text", required: false}
-          - {name: "google_maps", label: "Google Maps Key", widget: "string", required: false}
-          - {name: "facebook_app_id", label: "Facebook App ID", widget: "string", required: false}
-          - {name: "newsletter", label: "Newsletter TAG", widget: "text", hint: "Mailchimp, Mailerlite, etc", required: false}
+          - name: "integrations"
+            label: "Integrations"
+            label_singular: "Integration"
+            description: "3rd Party Stuff"
+            widget: "list"
+            required: false
+            fields:
+              - {name: "key", label: "Name", widget: "string"}
+              - {name: "value", label: "Value", widget: "text"}
+              - {name: "placement", label: "Placement", widget: "select", options: ["head", "body"], hint: "Optional. Use when injecting scripts, stylesheets, etc.", required: false}
