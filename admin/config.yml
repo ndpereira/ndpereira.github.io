@@ -264,6 +264,8 @@ collections:
 
   - name: "forms"
     label: "Forms"
+    label_singular: "Form"
+    folder: "collections/_forms"
     widget: "object"
     fields:
       - {name: "title", label: "Title", widget: "string"}
