@@ -15,20 +15,18 @@ collections:
     editor:
       preview: false
     fields:
-      - {name: "permalink", label: "Slug", widget: "string", hint: "Custom URL for the page (defaults to title-based slug)", required: false}
+      - {name: "permalink", label: "Slug", widget: "string", hint: "Defaults to title-based slug", required: false}
       - {name: "title", label: "Title", widget: "string"}
       - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
-      - {name: "image", label: "Image", widget: "image", hint: "Image for sharing on social networks (defaults to site image)", required: false}
-      - {name: "body", label: "Body", widget: "markdown", hint: "The description of the page for SEO (defaults to site description)", required: false}
+      - {name: "image", label: "Image", widget: "image", hint: "For sharing (defaults to site image)", media_folder: "/assets/media/", required: false}
+      - {name: "description", label: "Description", widget: "text", hint: "For SEO (defaults to site description)", required: false}
       - name: "sections"
         label: "Sections"
         label_singular: "Section"
-        hint: "The content sections that will appear on the page"
         widget: "list"
-        summary: '{{fields.name}}'
         required: false
         fields:
-          - {name: "name", label: "Name", widget: "string"}
+          - {name: "title", label: "Name", widget: "string"}
           - name: "blocks"
             label: "Blocks"
             label_singular: "Block"
@@ -44,10 +42,12 @@ collections:
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "image"
                 label: "Image"
-                widget: "list"
+                widget: "object"
                 fields:
-                  - {name: "src", label: "Image", widget: "image"}
+                  - {name: "src", label: "Image", widget: "image", media_folder: "/assets/media/"}
                   - {name: "alt", label: "Alternative Text", widget: "string"}
+                  - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9"], default: "3by2", required: false}
+                  - {name: "eager", label: "Eager", widget: "boolean", hint: "Default is lazy. Use eager for above the fold.", required: false}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "collection"
                 label: "Collection"
@@ -64,31 +64,21 @@ collections:
                       - {name: "key", label: "Key", widget: "string", required: false}
                       - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"], required: false}
                       - {name: "value", label: "Value", widget: "string", required: false}
-                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1, required: false}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit", required: false}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
+                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
               - name: "list"
                 label: "List"
                 widget: "object"
                 fields:
                   - {name: "tag", label: "Type", widget: "select", options: ["ul", "ol", "dl"], default: "ul", required: false}
                   - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list", required: false}
-                  - name: "items"
-                    label: "Items"
-                    label_singular: "Item"
-                    widget: "list"
-                    fields:
-                      - {name: "title", label: "Title", widget: "string", required: false}
-                      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
-                      - {name: "image", label: "Image", widget: "image", required: false}
-                      - {name: "body", label: "Body", widget: "markdown", required: false}
-                      - {name: "url", label: "URL", widget: "string", required: false}
-                      - {name: "class", label: "CSS Class", widget: "string", required: false}
-                  - {name: "template", label: "Items template", widget: "string", required: false}
+                  - {name: "text", label: "Text", widget: "markdown", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, required: false, hint: "Leave at 0 for no limit"}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
+                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
               - name: "form"
                 label: "Form"
                 widget: "object"
@@ -115,50 +105,43 @@ collections:
                       - {name: "description", label: "Description", widget: "markdown", required: false}
                       - {name: "url", label: "URL", widget: "string", required: false}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - name: "settings"
-            label: "Settings"
+          - {name: "class", label: "CSS Class", widget: "string", required: false}
+          - {name: "script", label: "JavaScript", widget: "file", media_folder: "/assets/js/", required: false}
+          - {name: "template", label: "Custom template", widget: "file", media_folder: "/_includes/sections/", required: false}
+          - name: "background"
+            label: "Background"
             widget: "object"
             collapsed: true
+            required: false
             fields:
-              - {name: "template", label: "Template", widget: "string", required: false}
-              - {name: "class", label: "CSS Class", widget: "string", required: false}
-              - {name: "script", label: "JavaScript", widget: "string", required: false}
-              - name: "background"
-                label: "Background"
+              - {name: "image", label: "Image", widget: "image", media_folder: "/assets/media/", required: false}
+              - {name: "Color", label: "Color", widget: "string", required: false}
+              - name: "gradient"
+                label: "Gradient"
                 widget: "object"
                 collapsed: true
                 required: false
                 fields:
-                  - {name: "image", label: "Image", widget: "image", required: false}
-                  - {name: "Color", label: "Color", widget: "string", required: false}
-                  - name: "gradient"
-                    label: "Gradient"
-                    widget: "object"
-                    collapsed: true
-                    required: false
+                  - {name: "type", label: "Type", widget: "select", options: ["linear", "radial"], default: "linear", required: false}
+                  - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], default: "↘", required: false}
+                  - name: "colors"
+                    label: "Color Stops"
+                    label_singular: "Color Stop"
+                    widget: "list"
                     fields:
-                      - {name: "type", label: "Type", widget: "select", options: ["linear", "radial"], default: "linear", required: false}
-                      - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], default: "↘", required: false}
-                      - name: "colors"
-                        label: "Color Stops"
-                        label_singular: "Color Stop"
-                        widget: "list"
-                        fields:
-                          - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true, required: false}
+                      - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true, required: false}
 
   - name: "organizations"
     label: "Organizations"
     label_singular: "Organization"
     folder: "collections/_organizations"
     slug: "{{slug}}"
-    media_folder: "{{media_folder}}/organizations/"
-    public_folder: "{{public_folder}}/organizations/"
     create: true
     editor:
       preview: false
     fields:
       - {name: "title", label: "Name", widget: "string"}
-      - {name: "logo", label: "Logo", widget: "image", pattern: ['\.(png|svg)$', '.svg, .png'], required: false, hint: "Use SVG or alternatively PNG, but don't forget to replace it later."}
+      - {name: "logo", label: "Logo", widget: "image", pattern: ['\.(png|svg)$', '.svg, .png'], media_folder: "/assets/media/organizations/", required: false}
       - {name: "body", label: "Bio", widget: "markdown", required: false}
       - {name: "url", label: "URL", widget: "string", required: false}
       - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true, required: false}
@@ -186,32 +169,21 @@ collections:
         fields:
           - {name: "type", label: "Type", widget: "relation", collection: "social", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
           - {name: "url", label: "URL", widget: "string"}
-      - name: "style"
-        label: "Style"
-        widget: "object"
-        collapsed: true
-        required: false
-        fields:
-          - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "style", label: "Inline Style", widget: "string", required: false}
-          - {name: "template", label: "Custom Template", widget: "string", required: false}
 
   - name: "people"
     label: "People"
     label_singular: "Person"
     folder: "collections/_people"
     slug: "{{slug}}"
-    media_folder: "{{media_folder}}/people/"
-    public_folder: "{{public_folder}}/people/"
     summary: "{{title}}, {{position}} @ {{organizations.0}}"
     create: true
     editor:
       preview: false
     fields:
       - {name: "title", label: "Name", widget: "string"}
-      - {name: "image", label: "Photo", widget: "image", required: false}
+      - {name: "image", label: "Photo", widget: "image", media_folder: "/assets/media/people/", required: false}
       - {name: "body", label: "Bio", widget: "markdown", required: false}
-      - {name: "position", label: "Position", widget: "string"}
+      - {name: "position", label: "Position", widget: "string", required: false}
       - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true, required: false}
       - name: "location"
         label: "Location"
@@ -231,15 +203,6 @@ collections:
           - {name: "type", label: "Type", widget: "relation", collection: "social", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
           - {name: "url", label: "URL", widget: "string"}
       - {name: "order", label: "Order", widget: "string", required: false}
-      - name: "style"
-        label: "Style"
-        widget: "object"
-        collapsed: true
-        required: false
-        fields:
-          - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "style", label: "Inline Style", widget: "string", required: false}
-          - {name: "template", label: "Custom Template", widget: "string", required: false}
 
   - name: "testimonials"
     label: "Testimonials"
@@ -258,17 +221,7 @@ collections:
         types:
           - {name: "person", label: "Person", widget: "relation", collection: "people", display_fields: ["title", "organization"], search_fields: ["title", "organization"], value_field: "title"}
           - {name: "organization", label: "Organization", widget: "relation", collection: "organizations", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
-      - {name: "image", label: "Image", widget: "image", hint: "Defaults to person avatar or company logo", required: false}
-      - {name: "body", label: "Testimonial", widget: "markdown", required: false}
-      - name: "style"
-        label: "Style"
-        widget: "object"
-        collapsed: true
-        required: false
-        fields:
-          - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "style", label: "Inline Style", widget: "string", required: false}
-          - {name: "template", label: "Custom Template", widget: "string", required: false}
+      - {name: "body", label: "Testimonial", widget: "markdown"}
 
   - name: "forms"
     label: "Forms"
@@ -276,10 +229,7 @@ collections:
     folder: "collections/_forms"
     widget: "object"
     fields:
-      - {name: "title", label: "Title", widget: "string"}
-      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
-      - {name: "image", label: "Image", widget: "image", required: false}
-      - {name: "body", label: "Body", widget: "markdown", required: false}
+      - {name: "title", label: "Name", widget: "string"}
       - name: "fields"
         label: "Fields"
         label_singular: "Field"
@@ -305,15 +255,6 @@ collections:
         fields:
           - {name: "name", label: "Name", widget: "select", options: ["action", "method", "enctype", "accept-charset", "name", "target", "novalidate", "autocomplete"], default: "required"}
           - {name: "value", label: "Value", widget: "text"}
-      - name: "style"
-        label: "Style"
-        widget: "object"
-        collapsed: true
-        required: false
-        fields:
-          - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "style", label: "Inline Style", widget: "string", required: false}
-          - {name: "template", label: "Custom Template", widget: "string", required: false}
 
   - name: "menus"
     label: "Menus"
@@ -417,23 +358,11 @@ collections:
     label: "Social"
     label_singular: "Channel"
     folder: "collections/_social"
-    media_folder: "{{media_folder}}/social/"
-    public_folder: "{{public_folder}}/social/"
     create: true
     editor:
       preview: false
     fields:
       - {name: "title", label: "Name", widget: "string"}
-
-  - name: "templates"
-    label: "Templates"
-    label_singular: "Template"
-    folder: "collections/_templates"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - {name: "title", label: "Title", widget: "string"}
 
   - name: "settings"
     label: "Settings"
@@ -445,13 +374,11 @@ collections:
         label: "General"
         file: "collections/_settings/general.md"
         description: "Site Settings"
-        media_folder: "{{media_folder}}/organizations/"
-        public_folder: "{{public_folder}}/organizations/"
         fields:
           - {name: "title", label: "Title", widget: "string"}
           - {name: "description", label: "Description", widget: "text"}
-          - {name: "logo", label: "Logo", widget: "image", pattern: ['\.svg$', '.svg']}
-          - {name: "image", label: "Share Image", widget: "image", required: false}
+          - {name: "logo", label: "Logo", widget: "image", media_folder: "/assets/media/organizations/", pattern: ['\.svg$', '.svg']}
+          - {name: "image", label: "Share Image", widget: "image", media_folder: "/assets/media/", required: false}
           - {name: "search", label: "Site Search", widget: "boolean", default: true}
           - name: "cookies"
             label: "Cookies"
