@@ -25,8 +25,10 @@ collections:
         label_singular: "Section"
         hint: "The content sections that will appear on the page"
         widget: "list"
+        summary: '{{fields.name}}'
         required: false
         fields:
+          - {name: "name", label: "Name", widget: "string"}
           - name: "blocks"
             label: "Blocks"
             label_singular: "Block"
@@ -34,18 +36,24 @@ collections:
             collapsed: true
             required: false
             types:
-                - {name: "text", label: "Text", widget: "markdown", modes: ["raw", "rich_text"]}
+                - name: "text"
+                  label: "Text"
+                  widget: "object"
+                  fields:
+                    - {name: "text", label: "Text", widget: "markdown", modes: ["raw", "rich_text"]}
+                    - {name: "class", label: "CSS Class", widget: "string", required: false}
                 - name: "image"
                   label: "Image"
                   widget: "list"
                   fields:
                     - {name: "src", label: "Image", widget: "image"}
                     - {name: "alt", label: "Alternative Text", widget: "text"}
+                    - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "collection"
                 label: "Collection"
                 widget: "object"
                 fields:
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], required: false}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list", required: false}
                   - {name: "collection", label: "Items from collection", widget: "string", required: false}
                   - name: "filters"
                     label: "Filters"
@@ -65,7 +73,7 @@ collections:
                 widget: "object"
                 fields:
                   - {name: "type", label: "Type", widget: "select", options: ["unordered", "ordered", "definition"], default: "unordered", required: false}
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "List", required: false}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list", required: false}
                   - name: "items"
                     label: "Items"
                     label_singular: "Item"
@@ -95,11 +103,10 @@ collections:
                     label: "Markers"
                     label_singular: "Marker"
                     widget: "list"
-                    required: false
                     fields:
                       - {name: "name", label: "Name", widget: "string", required: false}
-                      - {name: "latitude", label: "Latitude", widget: "string", required: false}
-                      - {name: "longitude", label: "Longitude", widget: "string", required: false}
+                      - {name: "latitude", label: "Latitude", widget: "string"}
+                      - {name: "longitude", label: "Longitude", widget: "string"}
                       - {name: "streetAddress1", label: "Street Address 1", widget: "string", required: false}
                       - {name: "streetAddress2", label: "Street Address 2", widget: "string", required: false}
                       - {name: "postalCode", label: "Postal Code", widget: "string", required: false}
@@ -108,31 +115,36 @@ collections:
                       - {name: "description", label: "Description", widget: "markdown", required: false}
                       - {name: "url", label: "URL", widget: "string", required: false}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "template", label: "Template", widget: "string", required: false}
-          - {name: "script", label: "JavaScript", widget: "text", required: false}
-          - name: "background"
-            label: "Background"
+          - name: "settings"
+            label: "Settings"
             widget: "object"
             collapsed: true
-            required: false
             fields:
-              - {name: "image", label: "Image", widget: "image", required: false}
-              - {name: "Color", label: "Color", widget: "string", required: false}
-              - name: "gradient"
-                label: "Gradient"
+              - {name: "template", label: "Template", widget: "string", required: false}
+              - {name: "class", label: "CSS Class", widget: "string", required: false}
+              - {name: "script", label: "JavaScript", widget: "text", required: false}
+              - name: "background"
+                label: "Background"
                 widget: "object"
                 collapsed: true
                 required: false
                 fields:
-                  - {name: "type", label: "Type", widget: "select", options: ["linear", "radial"], default: "linear", required: false}
-                  - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], default: "↘", required: false}
-                  - name: "colors"
-                    label: "Color Stops"
-                    label_singular: "Color Stop"
-                    widget: "list"
+                  - {name: "image", label: "Image", widget: "image", required: false}
+                  - {name: "Color", label: "Color", widget: "string", required: false}
+                  - name: "gradient"
+                    label: "Gradient"
+                    widget: "object"
+                    collapsed: true
+                    required: false
                     fields:
-                      - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true, required: false}
+                      - {name: "type", label: "Type", widget: "select", options: ["linear", "radial"], default: "linear", required: false}
+                      - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], default: "↘", required: false}
+                      - name: "colors"
+                        label: "Color Stops"
+                        label_singular: "Color Stop"
+                        widget: "list"
+                        fields:
+                          - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true, required: false}
 
   - name: "organizations"
     label: "Organizations"
