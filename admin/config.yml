@@ -69,8 +69,8 @@ collections:
                 label: "List"
                 widget: "object"
                 fields:
-                  - {name: "type", label: "Type", widget: "select", options: ["unordered-list", "ordered-list", "definition-list"], required: false}
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], required: false}
+                  - {name: "type", label: "Type", widget: "select", options: ["unordered", "ordered", "definition"], default: "unordered", required: false}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "List", required: false}
                   - name: "items"
                     label: "Items"
                     label_singular: "Item"
@@ -279,7 +279,7 @@ collections:
         widget: "list"
         fields:
           - {name: "name", label: "Name", widget: "string"}
-          - {name: "layout", label: "Layout", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"], default: "text"}
+          - {name: "type", label: "Type", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"], default: "text"}
           - {name: "value", label: "Value", widget: "string", required: false}
           - {name: "placeholder", label: "Placeholder", widget: "string", required: false}
           - name: "attributes"
