@@ -72,7 +72,7 @@ collections:
                 label: "List"
                 widget: "object"
                 fields:
-                  - {name: "type", label: "Type", widget: "select", options: ["ul", "ol", "dl"], default: "ul", required: false}
+                  - {name: "tag", label: "Type", widget: "select", options: ["ul", "ol", "dl"], default: "ul", required: false}
                   - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list", required: false}
                   - name: "items"
                     label: "Items"
