@@ -47,7 +47,7 @@ collections:
                 widget: "list"
                 fields:
                   - {name: "src", label: "Image", widget: "image"}
-                  - {name: "alt", label: "Alternative Text", widget: "text"}
+                  - {name: "alt", label: "Alternative Text", widget: "string"}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "collection"
                 label: "Collection"
@@ -64,7 +64,7 @@ collections:
                       - {name: "key", label: "Key", widget: "string", required: false}
                       - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"], required: false}
                       - {name: "value", label: "Value", widget: "string", required: false}
-                  - {name: "template", label: "Items template", widget: "string", required: false}
+                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1, required: false}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit", required: false}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
@@ -122,7 +122,7 @@ collections:
             fields:
               - {name: "template", label: "Template", widget: "string", required: false}
               - {name: "class", label: "CSS Class", widget: "string", required: false}
-              - {name: "script", label: "JavaScript", widget: "text", required: false}
+              - {name: "script", label: "JavaScript", widget: "string", required: false}
               - name: "background"
                 label: "Background"
                 widget: "object"
