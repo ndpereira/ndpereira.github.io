@@ -50,33 +50,33 @@ collections:
                 label: "Collection"
                 widget: "object"
                 fields:
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"]}
-                  - {name: "collection", label: "Items from collection", widget: "string"}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], required: false}
+                  - {name: "collection", label: "Items from collection", widget: "string", required: false}
                   - name: "filters"
                     label: "Filters"
                     label_singular: "Filter"
                     widget: "list"
                     required: false
                     fields:
-                      - {name: "key", label: "Key", widget: "string"}
-                      - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"]}
-                      - {name: "value", label: "Value", widget: "string"}
+                      - {name: "key", label: "Key", widget: "string", required: false}
+                      - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"], required: false}
+                      - {name: "value", label: "Value", widget: "string", required: false}
                   - {name: "template", label: "Items template", widget: "string", required: false}
-                  - {name: "perPage", label: "Items per page", widget: "number", default: 1}
-                  - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
+                  - {name: "perPage", label: "Items per page", widget: "number", default: 1, required: false}
+                  - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit", required: false}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "list"
                 label: "List"
                 widget: "object"
                 fields:
-                  - {name: "type", label: "Type", widget: "select", options: ["unordered-list", "ordered-list", "definition-list"]}
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"]}
+                  - {name: "type", label: "Type", widget: "select", options: ["unordered-list", "ordered-list", "definition-list"], required: false}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], required: false}
                   - name: "items"
                     label: "Items"
                     label_singular: "Item"
                     widget: "list"
                     fields:
-                      - {name: "title", label: "Title", widget: "string"}
+                      - {name: "title", label: "Title", widget: "string", required: false}
                       - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
                       - {name: "image", label: "Image", widget: "image", required: false}
                       - {name: "body", label: "Body", widget: "markdown", required: false}
@@ -103,8 +103,8 @@ collections:
                     required: false
                     fields:
                       - {name: "name", label: "Name", widget: "string", required: false}
-                      - {name: "latitude", label: "Latitude", widget: "string"}
-                      - {name: "longitude", label: "Longitude", widget: "string"}
+                      - {name: "latitude", label: "Latitude", widget: "string", required: false}
+                      - {name: "longitude", label: "Longitude", widget: "string", required: false}
                       - {name: "streetAddress1", label: "Street Address 1", widget: "string", required: false}
                       - {name: "streetAddress2", label: "Street Address 2", widget: "string", required: false}
                       - {name: "postalCode", label: "Postal Code", widget: "string", required: false}
@@ -137,7 +137,7 @@ collections:
                     label_singular: "Color Stop"
                     widget: "list"
                     fields:
-                      - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true}
+                      - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true, required: false}
 
   - name: "organizations"
     label: "Organizations"
