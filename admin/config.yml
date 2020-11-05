@@ -34,18 +34,13 @@ collections:
             collapsed: true
             required: false
             types:
-              - name: "text"
-                label: "Text"
-                widget: "object"
-                fields:
-                  - {name: "body", label: "Body", widget: "markdown", required: false}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
-              - name: "image"
-                label: "Image"
-                widget: "object"
-                fields:
-                  - {name: "src", label: "Image", widget: "image", required: false}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+                - {name: "text", label: "Text", widget: "markdown", modes: ["raw", "rich_text"]}
+                - name: "image"
+                  label: "Image"
+                  widget: "list"
+                  fields:
+                    - {name: "src", label: "Image", widget: "image"}
+                    - {name: "alt", label: "Alternative Text", widget: "text"}
               - name: "collection"
                 label: "Collection"
                 widget: "object"
