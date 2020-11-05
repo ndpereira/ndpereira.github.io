@@ -17,7 +17,6 @@ collections:
     fields:
       - {name: "permalink", label: "Slug", widget: "string", hint: "Defaults to title-based slug", required: false}
       - {name: "title", label: "Title", widget: "string"}
-      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
       - {name: "image", label: "Image", widget: "image", hint: "For sharing (defaults to site image)", media_folder: "/assets/media/", required: false}
       - {name: "description", label: "Description", widget: "text", hint: "For SEO (defaults to site description)", required: false}
       - name: "sections"
@@ -46,44 +45,44 @@ collections:
                 fields:
                   - {name: "src", label: "Image", widget: "image", media_folder: "/assets/media/"}
                   - {name: "alt", label: "Alternative Text", widget: "string"}
-                  - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9"], default: "3by2", required: false}
-                  - {name: "eager", label: "Eager", widget: "boolean", hint: "Default is lazy. Use eager for above the fold.", required: false}
+                  - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9", "free"], default: "3by2"}
+                  - {name: "loading", label: "Loading", widget: "select", options: ["lazy", "eager", "auto"], default: "lazy", hint: "Default is lazy. Use eager for above the fold."}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "collection"
                 label: "Collection"
                 widget: "object"
                 fields:
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list", required: false}
-                  - {name: "collection", label: "Items from collection", widget: "string", required: false}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list"}
+                  - {name: "collection", label: "Items from collection", widget: "string"}
                   - name: "filters"
                     label: "Filters"
                     label_singular: "Filter"
                     widget: "list"
                     required: false
                     fields:
-                      - {name: "key", label: "Key", widget: "string", required: false}
-                      - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"], required: false}
-                      - {name: "value", label: "Value", widget: "string", required: false}
-                  - {name: "perPage", label: "Items per page", widget: "number", default: 1, required: false}
-                  - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit", required: false}
+                      - {name: "key", label: "Key", widget: "string"}
+                      - {name: "condition", label: "Condition", widget: "select", options: ["is", "is not", "is less than", "is more than"], default: "is"}
+                      - {name: "value", label: "Value", widget: "string"}
+                  - {name: "perPage", label: "Items per page", widget: "number", default: 1}
+                  - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
                   - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
               - name: "list"
                 label: "List"
                 widget: "object"
                 fields:
-                  - {name: "tag", label: "Type", widget: "select", options: ["ul", "ol", "dl"], default: "ul", required: false}
-                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list", required: false}
+                  - {name: "tag", label: "Type", widget: "select", options: ["ul", "ol", "dl"], default: "ul"}
+                  - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list"}
                   - {name: "text", label: "Text", widget: "markdown", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
-                  - {name: "max", label: "Max Items", widget: "number", default: 0, required: false, hint: "Leave at 0 for no limit"}
+                  - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
                   - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
               - name: "form"
                 label: "Form"
                 widget: "object"
                 fields:
-                  - {name: "name", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                  - {name: "name", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "map"
                 label: "Map"
@@ -183,8 +182,9 @@ collections:
       - {name: "title", label: "Name", widget: "string"}
       - {name: "image", label: "Photo", widget: "image", media_folder: "/assets/media/people/", required: false}
       - {name: "body", label: "Bio", widget: "markdown", required: false}
-      - {name: "position", label: "Position", widget: "string", required: false}
-      - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true, required: false}
+      - {name: "organization", label: "Organization", widget: "relation", collection: "organization", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true}
+      - {name: "position", label: "Position", widget: "string"}
+      - {name: "relationships", label: "Relationships", widget: "relation", collection: "relationships", display_fields: ["title"], search_fields: ["title"], value_field: "title", multiple: true}
       - name: "location"
         label: "Location"
         widget: "object"
@@ -275,7 +275,7 @@ collections:
             required: false
             fields:
               - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
-              - {name: "description", label: "Description", widget: "string"}
+              - {name: "description", label: "Description", widget: "string", required: false}
               - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
               - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
               - name: "subitems"
@@ -285,7 +285,7 @@ collections:
                 required: false
                 fields:
                   - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
-                  - {name: "description", label: "Description", widget: "string"}
+                  - {name: "description", label: "Description", widget: "string", required: false}
                   - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
                   - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
           - name: "ctas"
@@ -296,13 +296,12 @@ collections:
             fields:
               - {name: "title", label: "Label", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
               - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"]}
-              - {name: "outline", label: "Outline?", widget: boolean, required: false}
+              - {name: "outline", label: "Outline", widget: boolean, required: false}
               - name: "actions"
                 label: "Actions"
                 hint: "Action for the button"
                 label_singular: "Action"
                 widget: "list"
-                required: false
                 types:
                   - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
                   - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
@@ -320,7 +319,7 @@ collections:
             required: false
             fields:
               - {name: "title", label: "Title", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
-              - {name: "description", label: "Description", widget: "string"}
+              - {name: "description", label: "Description", widget: "string", required: false}
               - {name: "page", label: "Page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", hint: "Choose a page...", required: false}
               - {name: "url", label: "URL", widget: "string", default: "https://", hint: "...or link to an URL", required: false}
               - name: "subitems"
@@ -378,16 +377,15 @@ collections:
           - {name: "title", label: "Title", widget: "string"}
           - {name: "description", label: "Description", widget: "text"}
           - {name: "logo", label: "Logo", widget: "image", media_folder: "/assets/media/organizations/", pattern: ['\.svg$', '.svg']}
-          - {name: "image", label: "Share Image", widget: "image", media_folder: "/assets/media/", required: false}
+          - {name: "image", label: "Share Image", widget: "image", media_folder: "/assets/media/"}
           - {name: "search", label: "Site Search", widget: "boolean", default: true}
           - name: "cookies"
             label: "Cookies"
             description: "EU cookie consent policy"
             widget: "object"
-            required: false
             fields:
-            - {name: "message", label: "Cookie warning message", widget: "markdown", default: "This site uses cookies.", required: false}
-            - {name: "button", label: "Cookie warning button", widget: "string", default: "OK", required: false}
+            - {name: "message", label: "Cookie warning message", widget: "markdown", default: "This site uses cookies."}
+            - {name: "button", label: "Cookie warning button", widget: "string", default: "OK"}
       - name: "contacts"
         label: "Contacts"
         file: "collections/_settings/contacts.md"
