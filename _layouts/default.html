@@ -8,21 +8,6 @@
   {% include svg.html %}
   {% include header.html %}
   <main id="main" role="main">
-    {% for item in page.sections %}
-    {% if item.section %}
-      {% assign slug = item.section | slugify %}
-      {% assign section = site.sections | where: "slug", slug | first %}
-      <section id="{{section.slug}}" {% if section.class %} class="{{section.class}}" {% endif %}>
-        {% include _sections/{{section.slug}}.html %}
-      </section>
-    {% else if item.carousel %}
-      {% assign slug = item.carousel | slugify %}
-      {% assign carousel = site.carousels | where: "slug", slug | first %}
-      <section id="{{slug}}-carousel" {% if section.class %} class="{{section.class}}" {% endif %}>
-        {% include carousel.html %}
-      </section>
-    {% endif %}
-    {% endfor %}
     {{content}}
   </main>
   {% include footer.html %}

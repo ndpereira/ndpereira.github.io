@@ -8,6 +8,6 @@ sections:
   - section: Posts
   - section: Numbers
   - section: Clients
-image: /assets/media/uploads/photo-1525538182201-02cd1909effb.jpeg
+image: /assets/media/photo-1525538182201-02cd1909effb.jpeg
 ---
 

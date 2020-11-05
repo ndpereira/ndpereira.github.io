@@ -2,7 +2,7 @@
 layout: null
 ---
 {% assign title = site.settings | where: 'slug', 'general' | map: 'title' | first %}
-{% assign nav = site.navigation | where: 'slug', 'header' | map: 'items' | map: 'title' | push: '' | unshift: title | unshift: title | unshift: '·' %}
+{% assign nav = site.menus | where: 'slug', 'header' | map: 'items' | map: 'title' | push: '' | unshift: title | unshift: title | unshift: '·' %}
 window.search = [
   {% for page in site.pages %}
   {% assign replace = nav | unshift: page.title | join: ' ' %}

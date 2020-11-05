@@ -15,7 +15,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      {% assign menu = site.navigation | where: "slug", "header" | first %}
+      {% assign menu = site.menus | where: "slug", "header" | first %}
       {% for item in menu.items %}
         {% if item.page %}
           {% assign slug = item.page | slugify %}

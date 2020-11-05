@@ -4,7 +4,7 @@ aside a span::before { font-family: "Font Awesome 5 Free"; font-size: 1rem; }
 aside a[href="#/collections/posts"] span::before { content: "\f5a1"; }
 aside a[href="#/collections/pages"] span::before { content: "\f15c"; }
 aside a[href="#/collections/sections"] span::before { content: "\f550"; }
-aside a[href="#/collections/navigation"] span::before { content: "\f0e8"; }
+aside a[href="#/collections/menus"] span::before { content: "\f0e8"; }
 aside a[href="#/collections/people"] span::before { content: "\f2b9"; }
 aside a[href="#/collections/organizations"] span::before { content: "\f1ad"; }
 aside a[href="#/collections/settings"] span::before { content: "\f085"; }

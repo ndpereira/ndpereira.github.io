@@ -31,11 +31,7 @@ collections:
   pages:
     output: true
     permalink: :slug/
-  sections:
-    output: false
-  carousels:
-    output: false
-  navigation:
+  menus:
     output: false
   people:
     output: false
