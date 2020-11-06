@@ -78,7 +78,29 @@ collections:
                     label_singular: "Item"
                     widget: "list"
                     fields:
+                      - {name: "title", label: "Title", widget: "string"}
+                      - {name: "subtitle", label: "Subtitle", widget: "string"}
                       - {name: "text", label: "Text", widget: "markdown"}
+                      - name: "image"
+                        label: "Image"
+                        widget: "object"
+                        fields:
+                          - {name: "src", label: "Image", widget: "image", media_folder: "/assets/media/"}
+                          - {name: "alt", label: "Alternative Text", widget: "string"}
+                          - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9", "free"], default: "3by2", required: false}
+                          - {name: "loading", label: "Loading", widget: "select", options: ["lazy", "eager", "auto"], default: "lazy", hint: "Default is lazy. Use eager for above the fold.", required: false}
+                          - {name: "background", label: "Background", widget: "boolean", required: false}
+                          - name: "button"
+                            label: "Button"
+                            widget: "object"
+                            required: false
+                            fields:
+                              - {name: "title", label: "Label", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+                              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"], default: "link"}
+                              - {name: "outline", label: "Outline", widget: boolean, required: false}
+                              - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                              - {name: "modal", label: "Trigger a modal", widget: "relation", collection: "modals", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                              - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
@@ -302,15 +324,9 @@ collections:
               - {name: "title", label: "Label", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
               - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"]}
               - {name: "outline", label: "Outline", widget: boolean, required: false}
-              - name: "actions"
-                label: "Actions"
-                hint: "Action for the button"
-                label_singular: "Action"
-                widget: "list"
-                types:
-                  - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
-                  - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
-                  - {name: "modal", label: "Trigger a modal", widget: "relation", collection: "modals", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+              - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+              - {name: "modal", label: "Trigger a modal", widget: "relation", collection: "modals", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+              - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
 
       - name: "footer"
         label: "Footer"
