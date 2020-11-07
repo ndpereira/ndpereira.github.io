@@ -8,7 +8,11 @@
   {% include svg.html %}
   {% include header.html %}
   <main id="main" role="main">
-    {{content}}
+    {% for section in page.sections %}
+      {% for block in section.blocks %}
+        {{block.text | liquify}}
+      {% endfor %}
+    {% endfor %}
   </main>
   {% include footer.html %}
   {% include modals.html %}

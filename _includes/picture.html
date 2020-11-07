@@ -1,0 +1,46 @@
+{% assign src = include.src %}
+{% assign alt = include.alt %}
+{% assign attrs = include.attrs %}
+{% assign loading = include.loading | default: 'lazy' %}
+{% assign class = include.class | split: ' ' | push: 'embed-responsive-item' | join: ' ' %}
+
+{% assign sizes = include.sizes | split: ' ' %}
+{% assign ratio = include.ratio | default: '3by2' %}
+{% assign breakpoints = site.data.utils.breakpoints %}
+
+{% assign max = include.max | split: ',' %}
+{% assign maxWidth = include.maxWidth | default: max[0] | times: 1 %}
+{% assign maxHeight = include.maxHeight | default: max[1] | times: 1 %}
+{% assign maxResize = include.maxResize | default: max[2] %}
+
+{% capture picture %}
+  <picture>
+    {% for breakpoint in breakpoints %}
+      {% assign size = sizes[forloop.index0] | split: ',' %}
+      {% assign width = size[0] | default: breakpoint | times: 1 %}
+      {% if maxWidth > 0 and maxWidth < width %}
+        {% assign width = maxWidth %}
+      {% endif %}
+      {% assign height = width | times: site.data.utils.ratios[ratio] | round %}
+      {% assign height = size[1] | default: height | times: 1 %}
+      {% if maxHeight > 0 and maxHeight < height %}
+        {% assign height = maxHeight %}
+      {% endif %}
+      {% assign resize = size[2] | default: maxResize | default: include.resize | default: 'fit' %}
+      {% capture srcset %}
+        {{-src}}?nf_resize={{resize}}&w={{width}}&h={{height}} 1x, {{ -}}
+        {{src}}?nf_resize={{resize}}&w={{width | times: 2 | round}}&h={{height | times: 2 | round}} 2x
+      {%- endcapture %}
+      {% unless forloop.last %}
+        <source media="(max-width: {{breakpoint | minus: 1}}px)" srcset="{{srcset}}">
+      {% else %}
+        <img src="{{src}}?nf_resize={{resize}}&w={{width}}&h={{height}}" srcset="{{srcset}}" width="{{width}}" height="{{height}}" alt="{{alt}}" class="{{class}}"{% if attrs %} {{attrs}}{% endif %}>
+      {% endunless %}
+    {% endfor %}
+  </picture>
+{% endcapture %}
+{% if loading == 'lazy' %}
+  <noscript>{{picture}}</noscript>
+{% else %}
+  {{picture}}
+{% endif %}

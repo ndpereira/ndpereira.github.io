@@ -7,7 +7,14 @@ sections:
   - title: Hero
     blocks:
       - type: text
-        text: dasdada
+        text: |-
+          # cenas
+
+          ## mais cenas
+
+          ![octopussy](/assets/media/photo-1485827329522-c625acce0067.jpeg){:class="animate" sizes="398 545 510 690 450 540"}
+
+          [cena](https://cena.com)
         class: dasdadadad
       - type: image
         src: /assets/media/photo-1485827329522-c625acce0067.jpeg
@@ -45,3 +52,10 @@ sections:
             longitude: sdfsfsd
     script: /assets/js/search.js
 ---
+# cenas
+
+## mais cenas
+
+![octopussy](/assets/media/photo-1485827329522-c625acce0067.jpeg)
+
+[cena](https://cena.com)

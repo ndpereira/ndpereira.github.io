@@ -57,9 +57,11 @@ sass:
 #plugins:
 #  - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+# Include
+include:
+  - _redirects
+
+# Exclude
 exclude:
   - run.sh
   - Gemfile

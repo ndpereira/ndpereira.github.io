@@ -47,6 +47,15 @@ collections:
                   - {name: "alt", label: "Alternative Text", widget: "string"}
                   - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9", "free"], default: "3by2"}
                   - {name: "loading", label: "Loading", widget: "select", options: ["lazy", "eager", "auto"], default: "lazy", hint: "Default is lazy. Use eager for above the fold."}
+                  - name: "sizes"
+                    label: "Art Direction"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - {name: "breakpoint", label: "Breakpoint", widget: "select", options: ["xs", "sm", "md", "lg", "xl"]}
+                      - {name: "width", label: "Width", widget: "number"}
+                      - {name: "height", label: "Height", widget: "number"}
+                      - {name: "resize", label: "Resize", widget: "select", options: ["fit", "smartcrop"]}
                   - {name: "class", label: "CSS Class", widget: "string", required: false}
               - name: "collection"
                 label: "Collection"
