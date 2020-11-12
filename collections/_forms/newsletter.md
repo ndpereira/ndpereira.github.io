@@ -10,7 +10,9 @@ fields:
       - name: required
   - name: submit
     type: submit
-    label: Get started for free
+    label: ""
     value: Get started for free
-    attributes: []
+    attributes:
+      - name: class
+        value: btn btn-primary
 ---
