@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: cdeath/cdeath.github.io 
+  name: git-gateway
+  branch: dev
 
 media_folder: "/assets/media/"
 public_folder: "/assets/media/"
@@ -15,7 +15,7 @@ collections:
     editor:
       preview: false
     fields:
-      - {name: "permalink", label: "Slug", widget: "string", hint: "Defaults to title-based slug", required: false}
+      - {name: "permalink", label: "Slug", widget: "string", hint: "Defaults to sluggified title", required: false}
       - {name: "title", label: "Title", widget: "string"}
       - {name: "image", label: "Image", widget: "image", hint: "For sharing (defaults to site image)", media_folder: "/assets/media/", required: false}
       - {name: "description", label: "Description", widget: "text", hint: "For SEO (defaults to site description)", required: false}
@@ -25,7 +25,7 @@ collections:
         widget: "list"
         required: false
         fields:
-          - {name: "title", label: "Name", widget: "string"}
+          - {name: "name", label: "Name", widget: "string"}
           - name: "blocks"
             label: "Blocks"
             label_singular: "Block"
@@ -33,30 +33,52 @@ collections:
             collapsed: true
             required: false
             types:
-              - name: "text"
-                label: "Text"
+              - name: "markdown"
+                label: "Markdown"
                 widget: "object"
                 fields:
-                  - {name: "text", label: "Text", widget: "markdown"}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+                  - {name: "markdown", label: "Markdown", widget: "markdown"}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
               - name: "image"
                 label: "Image"
                 widget: "object"
                 fields:
                   - {name: "src", label: "Image", widget: "image", media_folder: "/assets/media/"}
                   - {name: "alt", label: "Alternative Text", widget: "string"}
-                  - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9", "free"], default: "3by2"}
+                  - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9", "original"], default: "3by2"}
                   - {name: "loading", label: "Loading", widget: "select", options: ["lazy", "eager", "auto"], default: "lazy", hint: "Default is lazy. Use eager for above the fold."}
                   - name: "sizes"
-                    label: "Art Direction"
+                    label: "Sizes"
+                    label_singular: "Size"
                     widget: "list"
+                    collapsed: true
                     required: false
                     fields:
                       - {name: "breakpoint", label: "Breakpoint", widget: "select", options: ["xs", "sm", "md", "lg", "xl"]}
                       - {name: "width", label: "Width", widget: "number"}
                       - {name: "height", label: "Height", widget: "number"}
                       - {name: "resize", label: "Resize", widget: "select", options: ["fit", "smartcrop"]}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
               - name: "collection"
                 label: "Collection"
                 widget: "object"
@@ -67,6 +89,7 @@ collections:
                     label: "Filters"
                     label_singular: "Filter"
                     widget: "list"
+                    collapsed: true
                     required: false
                     fields:
                       - {name: "key", label: "Key", widget: "string"}
@@ -74,8 +97,18 @@ collections:
                       - {name: "value", label: "Value", widget: "string"}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
-                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
               - name: "list"
                 label: "List"
                 widget: "object"
@@ -88,38 +121,87 @@ collections:
                     widget: "list"
                     fields:
                       - {name: "title", label: "Title", widget: "string"}
-                      - {name: "subtitle", label: "Subtitle", widget: "string"}
-                      - {name: "text", label: "Text", widget: "markdown"}
+                      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
+                      - {name: "text", label: "Text", widget: "markdown", required: false}
                       - name: "image"
                         label: "Image"
                         widget: "object"
+                        collapsed: true
+                        required: false
                         fields:
                           - {name: "src", label: "Image", widget: "image", media_folder: "/assets/media/"}
                           - {name: "alt", label: "Alternative Text", widget: "string"}
                           - {name: "ratio", label: "Aspect Ratio", widget: "select", options: ["1by1", "3by2", "4by3", "16by9", "free"], default: "3by2", required: false}
                           - {name: "loading", label: "Loading", widget: "select", options: ["lazy", "eager", "auto"], default: "lazy", hint: "Default is lazy. Use eager for above the fold.", required: false}
                           - {name: "background", label: "Background", widget: "boolean", required: false}
-                          - name: "button"
-                            label: "Button"
-                            widget: "object"
-                            required: false
-                            fields:
-                              - {name: "title", label: "Label", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
-                              - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"], default: "link"}
-                              - {name: "outline", label: "Outline", widget: boolean, required: false}
-                              - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
-                              - {name: "modal", label: "Trigger a modal", widget: "relation", collection: "modals", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
-                              - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
+                      - name: "button"
+                        label: "Button"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "title", label: "Label", widget: "string", hint: "Link label (defaults to page title, or URL address)"}
+                          - {name: "type", label: "Type", widget: "select", options: ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "link"], default: "link"}
+                          - {name: "outline", label: "Outline", widget: boolean, required: false}
+                          - {name: "page", label: "Link to a page", widget: "relation", collection: "pages", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                          - {name: "modal", label: "Trigger a modal", widget: "relation", collection: "modals", display_fields: ["title"], search_fields: ["title"], value_field: "title", required: false}
+                          - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
                   - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
+              - name: "tabs"
+                label: "Tabs"
+                widget: "object"
+                fields:
+                  - name: "tabs"
+                    label: "Tabs"
+                    label_singular: "Tab"
+                    widget: "list"
+                    fields:
+                      - {name: "title", label: "Title", widget: "string"}
+                      - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
+                      - {name: "text", label: "Markdown", widget: "markdown", required: false}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
               - name: "form"
                 label: "Form"
                 widget: "object"
                 fields:
-                  - {name: "name", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
+                  - {name: "title", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
               - name: "map"
                 label: "Map"
                 widget: "object"
@@ -139,20 +221,32 @@ collections:
                       - {name: "addressCountry", label: "Country", widget: "string", required: false}
                       - {name: "description", label: "Description", widget: "markdown", required: false}
                       - {name: "url", label: "URL", widget: "string", required: false}
-                  - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "class", label: "CSS Class", widget: "string", required: false}
-          - {name: "script", label: "JavaScript", widget: "file", media_folder: "/assets/js/", required: false}
+                  - name: "style"
+                    label: "Style"
+                    widget: "object"
+                    collapsed: true
+                    required: false
+                    fields:
+                      - {name: "class", label: "CSS Class", widget: "string", required: false}
+                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
+          - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to sluggified section name", required: false}
           - {name: "template", label: "Custom template", widget: "file", media_folder: "/_includes/sections/", required: false}
-          - name: "background"
-            label: "Background"
+          - {name: "stylesheet", label: "Stylesheet", widget: "file", media_folder: "/assets/css/", required: false}
+          - {name: "script", label: "JavaScript", widget: "file", media_folder: "/assets/js/", required: false}
+          - name: "style"
+            label: "Style"
             widget: "object"
             collapsed: true
             required: false
             fields:
-              - {name: "image", label: "Image", widget: "image", media_folder: "/assets/media/", required: false}
-              - {name: "Color", label: "Color", widget: "string", required: false}
+              - {name: "background-image", label: "Background Image", widget: "image", media_folder: "/assets/media/", required: false}
+              - {name: "background-color", label: "Background Color", widget: "string", required: false}
               - name: "gradient"
-                label: "Gradient"
+                label: "Background Gradient"
                 widget: "object"
                 collapsed: true
                 required: false
@@ -165,6 +259,12 @@ collections:
                     widget: "list"
                     fields:
                       - {label: "Color", name: "color", widget: "color", enableAlpha: true, allowInput: true, required: false}
+              - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+              - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
+              - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
+              - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
+
+      - {name: "toc", label: "Table of Contentes", widget: boolean, required: false}
 
   - name: "organizations"
     label: "Organizations"
@@ -271,10 +371,12 @@ collections:
         label_singular: "Field"
         widget: "list"
         fields:
-          - {name: "name", label: "Name", widget: "string"}
           - {name: "type", label: "Type", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"], default: "text"}
+          - {name: "name", label: "Name", widget: "string"}
           - {name: "value", label: "Value", widget: "string", required: false}
           - {name: "placeholder", label: "Placeholder", widget: "string", required: false}
+          - {name: "label", label: "Label", widget: "string", required: false}
+          - {name: "hide-label", label: "Hide label", widget: "boolean", required: false}
           - name: "attributes"
             label: "Attributes"
             label_singular: "Attribute"
@@ -289,7 +391,7 @@ collections:
         widget: "list"
         required: false
         fields:
-          - {name: "name", label: "Name", widget: "select", options: ["action", "method", "enctype", "accept-charset", "name", "target", "novalidate", "autocomplete"], default: "required"}
+          - {name: "name", label: "Name", widget: "select", options: ["action", "method", "enctype", "accept-charset", "target", "novalidate", "autocomplete"], required: false}
           - {name: "value", label: "Value", widget: "text"}
 
   - name: "menus"
