@@ -373,12 +373,12 @@ collections:
         label_singular: "Field"
         widget: "list"
         fields:
-          - {name: "type", label: "Type", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"], default: "text"}
           - {name: "name", label: "Name", widget: "string"}
-          - {name: "value", label: "Value", widget: "string", required: false}
+          - {name: "type", label: "Type", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"], default: "text"}
+          - {name: "label", label: "Label", widget: "string"}
+          - {name: "label-hidden", label: "Hidden label", widget: "boolean", required: false}
           - {name: "placeholder", label: "Placeholder", widget: "string", required: false}
-          - {name: "label", label: "Label", widget: "string", required: false}
-          - {name: "hide-label", label: "Hide label", widget: "boolean", required: false}
+          - {name: "value", label: "Value", widget: "string", required: false}
           - name: "attributes"
             label: "Attributes"
             label_singular: "Attribute"
