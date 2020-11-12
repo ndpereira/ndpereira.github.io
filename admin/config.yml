@@ -368,6 +368,7 @@ collections:
     editor:
       preview: false
     widget: "object"
+    required: false
     fields:
       - {name: "title", label: "Name", widget: "string"}
       - name: "fields"
