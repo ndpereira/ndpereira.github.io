@@ -363,6 +363,8 @@ collections:
     label: "Forms"
     label_singular: "Form"
     folder: "collections/_forms"
+    slug: "{{slug}}"
+    create: true
     widget: "object"
     fields:
       - {name: "title", label: "Name", widget: "string"}
