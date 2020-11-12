@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: dev
+  name: github
+  repo: cdeath/cdeath.github.io 
 
 media_folder: "/assets/media/"
 public_folder: "/assets/media/"
