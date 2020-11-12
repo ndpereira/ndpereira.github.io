@@ -377,7 +377,7 @@ collections:
         fields:
           - {name: "name", label: "Name", widget: "string"}
           - {name: "type", label: "Type", widget: "select", options: ["text", "checkbox", "radio", "textarea", "email", "password", "url", "search", "tel", "date", "time", "number", "range", "file", "button", "submit", "reset", "hidden"]}
-          - {name: "label", label: "Label", widget: "string"}
+          - {name: "label", label: "Label", widget: "string", required: false}
           - {name: "label-hidden", label: "Hidden label", widget: "boolean", required: false}
           - {name: "placeholder", label: "Placeholder", widget: "string", required: false}
           - {name: "value", label: "Value", widget: "string", required: false}
@@ -387,7 +387,7 @@ collections:
             widget: "list"
             required: false
             fields:
-              - {name: "name", label: "Name", widget: "select", options: ["required", "readonly", "disabled", "checked", "multiple", "autocomplete", "autofocus", "minlength", "maxlength", "min", "max", "step", "pattern", "accept", "size", "rows", "cols", "width", "height", "data"]}
+              - {name: "name", label: "Name", widget: "select", options: ["id", "class", "required", "readonly", "disabled", "checked", "multiple", "autocomplete", "autofocus", "minlength", "maxlength", "min", "max", "step", "pattern", "accept", "size", "rows", "cols", "width", "height", "data"]}
               - {name: "value", label: "Value", widget: "text", required: false}
       - name: "attributes"
         label: "Attributes"
@@ -395,7 +395,7 @@ collections:
         widget: "list"
         required: false
         fields:
-          - {name: "name", label: "Name", widget: "select", options: ["action", "method", "enctype", "accept-charset", "target", "novalidate", "autocomplete"], required: false}
+          - {name: "name", label: "Name", widget: "select", options: ["id", "class", "action", "method", "enctype", "accept-charset", "target", "novalidate", "autocomplete"]}
           - {name: "value", label: "Value", widget: "text", required: false}
 
   - name: "menus"
