@@ -8,7 +8,7 @@ fields:
     placeholder: Enter your email
     attributes:
       - name: required
-  - name: Submit
+  - name: submit
     type: submit
     label: Get started for free
     value: Get started for free
