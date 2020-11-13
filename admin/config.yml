@@ -381,9 +381,9 @@ collections:
           - {name: "label-hidden", label: "Hide Label", widget: "boolean", required: false}
           - {name: "placeholder", label: "Placeholder", widget: "string", required: false}
           - {name: "value", label: "Value", widget: "text", required: false}
-          - name: "options",
-            label: "Options",
-            label_singular: "Option",
+          - name: "options"
+            label: "Options"
+            label_singular: "Option"
             widget: "list"
             hint: "Options for select type fields"
             required: false
