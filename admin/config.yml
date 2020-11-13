@@ -263,7 +263,6 @@ collections:
               - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
               - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
               - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], default: "linear", required: false}
-
       - {name: "toc", label: "Table of Contentes", widget: boolean, required: false}
 
   - name: "organizations"

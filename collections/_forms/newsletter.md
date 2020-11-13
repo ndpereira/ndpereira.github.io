@@ -10,7 +10,6 @@ fields:
       - name: required
   - name: submit
     type: submit
-    label: ""
     value: Get started for free
     attributes:
       - name: class
