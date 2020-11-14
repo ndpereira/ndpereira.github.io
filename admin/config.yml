@@ -188,7 +188,7 @@ collections:
                 label: "Form"
                 widget: "object"
                 fields:
-                  - {name: "title", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
+                  - {name: "title", label: "Form Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
                   - name: "style"
                     label: "Block Style"
                     widget: "object"
@@ -210,7 +210,7 @@ collections:
                     label_singular: "Marker"
                     widget: "list"
                     fields:
-                      - {name: "name", label: "Name", widget: "string", required: false}
+                      - {name: "name", label: "Map Name", widget: "string", required: false}
                       - {name: "latitude", label: "Latitude", widget: "string"}
                       - {name: "longitude", label: "Longitude", widget: "string"}
                       - {name: "streetAddress1", label: "Street Address 1", widget: "string", required: false}
