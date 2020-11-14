@@ -97,7 +97,6 @@ collections:
                       - {name: "value", label: "Value", widget: "string"}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
-                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                   - name: "style"
                     label: "Block Style"
                     widget: "object"
@@ -105,6 +104,7 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
+                      - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                       - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
                       - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
                       - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
@@ -148,7 +148,6 @@ collections:
                           - {name: "url", label: "External URL", widget: "string", default: "https://", required: false}
                   - {name: "perPage", label: "Items per page", widget: "number", default: 1}
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
-                  - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                   - name: "style"
                     label: "Block Style"
                     widget: "object"
@@ -156,7 +155,7 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
-                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                       - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
                       - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
                       - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
@@ -180,7 +179,7 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
-                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                       - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
                       - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
                       - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
@@ -197,7 +196,7 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
-                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                       - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
                       - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
                       - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
@@ -228,7 +227,7 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
-                      - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
+                      - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                       - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
                       - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
                       - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
