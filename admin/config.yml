@@ -25,9 +25,9 @@ collections:
         widget: "list"
         required: false
         fields:
-          - {name: "name", label: "Name", widget: "string"}
+          - {name: "name", label: "Section Name", widget: "string"}
           - name: "blocks"
-            label: "Blocks"
+            label: "Section Blocks"
             label_singular: "Block"
             widget: "list"
             collapsed: true
@@ -39,7 +39,7 @@ collections:
                 fields:
                   - {name: "markdown", label: "Markdown", widget: "markdown"}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -69,7 +69,7 @@ collections:
                       - {name: "height", label: "Height", widget: "number"}
                       - {name: "resize", label: "Resize", widget: "select", options: ["fit", "smartcrop"]}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -99,7 +99,7 @@ collections:
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
                   - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -150,7 +150,7 @@ collections:
                   - {name: "max", label: "Max Items", widget: "number", default: 0, hint: "Leave at 0 for no limit"}
                   - {name: "template", label: "Items template", widget: "file", media_folder: "/_includes/blocks/", required: false}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -174,7 +174,7 @@ collections:
                       - {name: "subtitle", label: "Subtitle", widget: "string", required: false}
                       - {name: "text", label: "Markdown", widget: "markdown", required: false}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -191,7 +191,7 @@ collections:
                 fields:
                   - {name: "title", label: "Name", widget: "relation", collection: "forms", display_fields: ["title"], search_fields: ["title"], value_field: "title"}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -222,7 +222,7 @@ collections:
                       - {name: "description", label: "Description", widget: "markdown", required: false}
                       - {name: "url", label: "URL", widget: "string", required: false}
                   - name: "style"
-                    label: "Style"
+                    label: "Block Style"
                     widget: "object"
                     collapsed: true
                     required: false
@@ -234,7 +234,7 @@ collections:
                       - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
                       - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
           - name: "style"
-            label: "Style"
+            label: "Section Style"
             widget: "object"
             collapsed: true
             required: false
@@ -274,8 +274,8 @@ collections:
                   - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
                   - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
                   - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
-          - {name: "script", label: "JavaScript", widget: "file", media_folder: "/assets/js/", required: false}
-      - {name: "toc", label: "Table of Contentes", widget: boolean, required: false}
+          - {name: "script", label: "Section JavaScript", widget: "file", media_folder: "/assets/js/", required: false}
+      - {name: "toc", label: "Table of Contents", widget: boolean, required: false}
 
   - name: "organizations"
     label: "Organizations"
