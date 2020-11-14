@@ -25,7 +25,7 @@ collections:
         widget: "list"
         required: false
         fields:
-          - {name: "name", label: "Section Name", widget: "string", required: false}
+          - {name: "name", label: "Section Name", widget: "string"}
           - name: "blocks"
             label: "Section Blocks"
             label_singular: "Block"
@@ -257,7 +257,7 @@ collections:
                     required: false
                     fields:
                       - {name: "type", label: "Type", widget: "select", options: ["linear", "radial"], required: false}
-                      - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], default: "↘", required: false}
+                      - {name: "direction", label: "Direction", widget: "select", options: ["↑","↗","→","↘","↓","↙","←","↖"], required: false}
                       - name: "colors"
                         label: "Color Stops"
                         label_singular: "Color Stop"
