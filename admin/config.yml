@@ -84,7 +84,7 @@ collections:
                 widget: "object"
                 fields:
                   - {name: "layout", label: "Layout", widget: "select", options: ["list", "grid", "carousel"], default: "list"}
-                  - {name: "collection", label: "Items from collection", widget: "string"}
+                  - {name: "collection", label: "Items from collection", widget: "select", options: ["organizations", "people", "testimonials", "posts", "categories"]}
                   - name: "filters"
                     label: "Filters"
                     label_singular: "Filter"
