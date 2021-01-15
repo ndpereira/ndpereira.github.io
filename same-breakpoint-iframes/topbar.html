@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sidebar</title>
+  <title>Navbar</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="mq.css">
+  <link rel="stylesheet" href="common.css">
   <style>
-    html, body {
-      width: 100%;
+    body {
+      width: calc(100vw - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
     }
-    @media (min-width: 576px) {
-      html, body {
-        width: 360px;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <h1>Sidebar</h1>
+  <h1>Top Bar</h1>
   <p>
     breakpoint:
     <span class="xs">xs</span>

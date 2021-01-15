@@ -4,65 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Look ma, we all have the same breakpoints!</title>
-  <link rel="stylesheet" href="mq.css">
+  <link rel="stylesheet" href="common.css">
   <style>
     html, body {
       width: 100vw;
       height: 100vh;
     }
     body {
-      flex-direction: column;
       padding: 0;
-    }
-    header {
-      width: 100%;
-      height: 100px;
-      background: #f0f0f0;
-      overflow: hidden;
-    }
-    main {
       display: flex;
-      flex: 1;
     }
-    main div {
-      display: none;
-      flex: 1;
-      padding: 2rem;
-    }
-    aside {
-      width: 100%;
+    div {
+      height: 100%;
+      position: relative;
       overflow: hidden;
-      background: #e0e0e0;
     }
-    @media (min-width: 576px) {
-      aside {
-        width: 360px;
+    iframe {
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    .appbar {
+      width: 5rem;
+    }
+    .app {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .topbar {
+      height: 4rem;
+      flex-basis: 100%;
+      border-bottom: 1px solid lightgray;
+    }
+    .list {
+      flex-basis: 100%;
+    }
+    .details {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .list {
+        flex-basis: 360px;
+        border-right: 1px solid lightgray;
       }
-      main div {
+      .details {
+        flex: 1;
         display: block;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <iframe title="navbar" src="navbar.html"></iframe>
-  </header>
-  <main>
-    <aside>
-      <iframe title="sidebar" src="sidebar.html"></iframe>
-    </aside>
-    <div>
-      <h1>Main</h1>
-      <p>
-        breakpoint:
-        <span class="xs">xs</span>
-        <span class="sm">sm</span>
-        <span class="md">md</span>
-        <span class="lg">lg</span>
-        <span class="xl">xl</span>
-      </p>
+  <div class="appbar">
+    <iframe title="app bar" src="appbar.html"></iframe>
+  </div>
+  <div class="app">
+    <div class="topbar">
+      <iframe title="topbar" src="topbar.html"></iframe>
     </div>
-  </main>
+    <div class="list">
+      <iframe title="list" src="list.html"></iframe>
+    </div>
+    <div class="details">
+      <iframe title="details" src="details.html"></iframe>
+    </div>
+  </div>
 </body>
 </html>

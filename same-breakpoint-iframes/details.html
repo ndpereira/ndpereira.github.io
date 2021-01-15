@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Navbar</title>
+  <title>Details</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="mq.css">
+  <link rel="stylesheet" href="common.css">
   <style>
+    html, body {
+      width: calc(100vw - 80px);
+    }
     body {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      padding: 1rem;
     }
     h1 {
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
-</style>
+    @media (min-width: 576px) {
+      html, body {
+        width: calc(100vw - 80px - 360px);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Navbar</h1>
+  <h1>Details</h1>
   <p>
     breakpoint:
     <span class="xs">xs</span>
