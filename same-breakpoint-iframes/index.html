@@ -15,7 +15,6 @@
       display: flex;
     }
     div {
-      height: 100%;
       position: relative;
       overflow: hidden;
     }
@@ -31,12 +30,16 @@
     }
     .app {
       flex: 1;
+      height: 100%;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .panels {
+      flex: 1;
+      display: flex;
     }
     .topbar {
       height: 4rem;
-      flex-basis: 100%;
       border-bottom: 1px solid lightgray;
     }
     .list {
@@ -65,11 +68,13 @@
     <div class="topbar">
       <iframe title="topbar" src="topbar.html"></iframe>
     </div>
-    <div class="list">
-      <iframe title="list" src="list.html"></iframe>
-    </div>
-    <div class="details">
-      <iframe title="details" src="details.html"></iframe>
+    <div class="panels">
+      <div class="list">
+        <iframe title="list" src="list.html"></iframe>
+      </div>
+      <div class="details">
+        <iframe title="details" src="details.html"></iframe>
+      </div>
     </div>
   </div>
 </body>
