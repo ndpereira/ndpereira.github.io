@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Around the World, Around the World</title>
+  <style>
+    :root {
+      --pink: #e83e8c;
+      --indigo: #5f3efa;
+      --cyan: #5cbcca;
+      --teal: #20c997;
+      --yellow: #ffc107;
+      --green: #28a745;
+      font-family: sans-serif;
+    }
+    *, ::before, ::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 100vw;
+      height: 100vw;
+    }
+    body * {
+      position: absolute;
+      border-radius: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    .pink {
+      background: var(--pink);
+      box-shadow: 0 0 1rem 0 var(--pink);
+    }
+    .indigo {
+      background: var(--indigo);
+      box-shadow: 0 0 1rem 0 var(--indigo);
+    }
+    .cyan {
+      background: var(--cyan);
+      box-shadow: 0 0 1rem 0 var(--cyan);
+    }
+    .teal {
+      background: var(--teal);
+      box-shadow: 0 0 1rem 0 var(--teal);
+    }
+    .yellow {
+      background: var(--yellow);
+      box-shadow: 0 0 1rem 0 var(--yellow);
+    }
+    .green {
+      background: var(--green);
+      box-shadow: 0 0 1rem 0 var(--green);
+    }
+    .satellite {
+      width: 2rem;
+      height: 2rem;
+      color: rgba(255,255,255,.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .satellite.small {
+      width: 1rem;
+      height: 1rem;
+    }
+    .outer-ring, .inner-ring, .planet {
+      top: 50%;
+      left: 50%;
+    }
+    .outer-ring {
+      width: 20rem;
+      height: 20rem;
+      border: 2px solid var(--indigo);
+      animation: aroundtheworld 30s linear infinite;
+    }
+    .outer-ring .satellite {
+      animation: aroundtheworld 30s linear infinite reverse;
+    }
+    .outer-ring .satellite:nth-child(1) {
+      top: 0;
+      left: 50%;
+    }
+    .outer-ring .satellite:nth-child(2) {
+      top: 50%;
+      left: 100%;
+    }
+    .outer-ring .satellite:nth-child(3) {
+      top: 100%;
+      left: 50%;
+    }
+    .outer-ring .satellite:nth-child(4) {
+      top: 50%;
+      left: 0;
+    }
+    .inner-ring {
+      width: 12.5rem;
+      height: 12.5rem;
+      border: 2px solid var(--pink);
+      animation: aroundtheworld 15s linear infinite;
+    }
+    .inner-ring .satellite {
+      animation: aroundtheworld 15s linear infinite reverse;
+    }
+    .inner-ring .satellite:nth-child(1) {
+      top: 15%;
+      left: 86%;
+    }
+    .inner-ring .satellite:nth-child(2) {
+      top: 85%;
+      left: 85%;
+    }
+    .inner-ring .satellite:nth-child(3) {
+      top: 86%;
+      left: 15%;
+    }
+    .inner-ring .satellite:nth-child(4) {
+      top: 15%;
+      left: 15%;
+    }
+    .planet {
+      width: 5rem;
+      height: 5rem;
+    }
+    @keyframes aroundtheworld {
+      0% { transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 0deg); }
+      100% { transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-ring">
+    <div class="satellite indigo">A</div>
+    <div class="satellite teal">B</div>
+    <div class="satellite cyan">C</div>
+    <div class="satellite yellow small"></div>
+  </div>
+  <div class="inner-ring">
+    <div class="satellite small yellow"></div>
+    <div class="satellite pink">D</div>
+    <div class="satellite small indigo"></div>
+    <div class="satellite green">E</div>
+  </div>
+  <div class="planet cyan"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html, body {
+  min-height: 100%;
+}
+body {
+  display: flex;
+  font-family: sans-serif;
+  flex-direction: column;
+  padding: 2rem;
+}
+h1 {
+  margin-bottom: 1rem;
+}
+header, aside {
+  position: relative;
+}
+iframe {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+span {
+  display: none;
+}
+@media (max-width: 575px) {
+  .xs { display: inline }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .sm { display: inline; }
+}
+@media (min-width: 768px) and (max-width: 959px) {
+  .md { display: inline; }
+}
+@media (min-width: 960px) and (max-width: 1199px) {
+  .lg { display: inline; }
+}
+@media (min-width: 1200px) {
+  .xl { display: inline; }
+}

@@ -45,10 +45,16 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
               - name: "image"
                 label: "Image"
                 widget: "object"
@@ -75,10 +81,16 @@ collections:
                     required: false
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
               - name: "collection"
                 label: "Collection"
                 widget: "object"
@@ -105,10 +117,16 @@ collections:
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
                       - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
               - name: "list"
                 label: "List"
                 widget: "object"
@@ -156,10 +174,16 @@ collections:
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
                       - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
               - name: "tabs"
                 label: "Tabs"
                 widget: "object"
@@ -180,10 +204,16 @@ collections:
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
                       - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
               - name: "form"
                 label: "Form"
                 widget: "object"
@@ -197,10 +227,16 @@ collections:
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
                       - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
               - name: "map"
                 label: "Map"
                 widget: "object"
@@ -228,10 +264,16 @@ collections:
                     fields:
                       - {name: "class", label: "CSS Class", widget: "string", hint: "Defaults to block type", required: false}
                       - {name: "template", label: "Template", widget: "file", media_folder: "/_includes/blocks/", required: false}
-                      - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                      - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                      - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                      - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                      - name: "animation"
+                        label: "Animation"
+                        widget: "object"
+                        collapsed: true
+                        required: false
+                        fields:
+                          - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                          - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                          - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                          - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
           - name: "style"
             label: "Section Style"
             widget: "object"
@@ -269,10 +311,10 @@ collections:
                 collapsed: true
                 required: false
                 fields:
-                  - {name: "animation-name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
-                  - {name: "animation-duration", label: "Animation Duration", widget: "number", required: false}
-                  - {name: "animation-delay", label: "Animation Delay", widget: "number", required: false}
-                  - {name: "animation-timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
+                  - {name: "name", label: "Animation Name", widget: "select", options: ["fadeIn", "fadeInUp", "fadeInDown", "fadeInLeft", "fadeInRight"], required: false}
+                  - {name: "duration", label: "Animation Duration", widget: "number", required: false}
+                  - {name: "delay", label: "Animation Delay", widget: "number", required: false}
+                  - {name: "timing-function", label: "Animation Timing Function", widget: "select", options: ["linear", "ease-in", "ease-out", "ease-in-out"], required: false}
           - {name: "script", label: "Section JavaScript", widget: "file", media_folder: "/assets/js/", required: false}
       - {name: "toc", label: "Table of Contents", widget: boolean, required: false}
 

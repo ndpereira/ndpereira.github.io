@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Look ma, we all have the same breakpoints!</title>
+  <link rel="stylesheet" href="mq.css">
+  <style>
+    html, body {
+      width: 100vw;
+      height: 100vh;
+    }
+    body {
+      flex-direction: column;
+      padding: 0;
+    }
+    header {
+      width: 100%;
+      height: 100px;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+    main {
+      display: flex;
+      flex: 1;
+    }
+    main div {
+      display: none;
+      flex: 1;
+      padding: 2rem;
+    }
+    aside {
+      width: 100%;
+      overflow: hidden;
+      background: #e0e0e0;
+    }
+    @media (min-width: 576px) {
+      aside {
+        width: 360px;
+      }
+      main div {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <iframe title="navbar" src="navbar.html"></iframe>
+  </header>
+  <main>
+    <aside>
+      <iframe title="sidebar" src="sidebar.html"></iframe>
+    </aside>
+    <div>
+      <h1>Main</h1>
+      <p>
+        breakpoint:
+        <span class="xs">xs</span>
+        <span class="sm">sm</span>
+        <span class="md">md</span>
+        <span class="lg">lg</span>
+        <span class="xl">xl</span>
+      </p>
+    </div>
+  </main>
+</body>
+</html>

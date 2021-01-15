@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ZigZag Scroll</title>
+  <style>
+    *, ::before, ::after {
+      box-sizing: border-box;
+    }
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    section {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .h-scroll {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      transform: rotate(-90deg) translateX(-100%);
+      transform-origin: top left;
+      width: 100vh;
+      height: 100vw;
+    }
+    .v-scroll {
+      transform: rotate(90deg) translateY(-100vh);
+      transform-origin: top left;
+      display: inline-flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="h-scroll">
+    <div class="v-scroll">
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+      <section>4</section>
+      <section>5</section>
+    </div>
+  </div>
+  <section>6</section>
+  <section>7</section>
+  <section>8</section>
+  <div class="h-scroll">
+    <div class="v-scroll">
+      <section>9</section>
+      <section>10</section>
+    </div>
+  </div>
+</body>
+</html>
