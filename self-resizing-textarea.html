@@ -66,10 +66,9 @@
     };
 
     /* place cursor at the end */
-    var value = textarea.value;
     textarea.value = '';
     textarea.focus();
-    textarea.value = value;
+    textarea.value = textarea.textContent;
 
     /* resize on input */
     textarea.addEventListener('input', resize);
