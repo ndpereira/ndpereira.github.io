@@ -11,6 +11,14 @@
     * {
       box-sizing: border-box;
       padding: 0;
+      margin: 0;
+      border: 0;
+    }
+    :focus {
+      outline: none;
+    }
+    :not(:last-child) {
+      margin-bottom: 1rem;
     }
     body {
       width: 100vw;
@@ -20,28 +28,59 @@
       align-items: center;
       justify-content: center;
     }
+    .textarea {
+      /*
+      * styled a wrapper because i'm lazy :)
+      * it's easier not having to deal with
+      * scrollHeight, plus padding, plus border,
+      * plus whatever...
+      */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 1rem;
+    }
     textarea {
-      min-height: 10vh;
+      border-radius: 5px;
+      min-height: 5rem;
       width: 50vw;
       resize: none;
-      padding: 1rem;
+      font-size: .875rem;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
   <h1>Look at it grow...</h1>
-  <textarea>It can start with a min-height, but the more you type...</textarea>
+  <div class="textarea">
+    <textarea>It can start with a min-height, but the more you type...</textarea>
+  </div>
   <p>(resize handle disabled, because...)</p>
   <script>
     var textarea = document.querySelector('textarea');
 
     function grow() {
-      textarea.style.height = '0';
+      /* reset the height... handles the backspace */
+      textarea.style.height = 0;
+ 
+      /* set the textarea height equal to it's scrollHeight */
       textarea.style.height = textarea.scrollHeight + 'px';
     };
 
-    textarea.addEventListener('input', grow);
-    grow();
+    function init() {     
+      /* place cursor at the end */
+      var value = textarea.value;
+      textarea.value = '';
+      textarea.focus();
+      textarea.value = value;
+
+      /* grow on input */
+      textarea.addEventListener('input', grow);
+
+      /* grow on init */
+      grow();
+    }
+
+    init();
   </script>
 </body>
 </html>
