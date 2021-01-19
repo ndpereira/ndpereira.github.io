@@ -40,7 +40,6 @@
       padding: 1rem;
     }
     textarea {
-      border-radius: 5px;
       min-height: 3rem;
       width: 50vw;
       font-size: .875rem;
@@ -52,7 +51,7 @@
 <body>
   <h1>Look at it grow...</h1>
   <div class="textarea">
-    <textarea>It can start with a min-height, but the more you type...</textarea>
+    <textarea>It starts with a min-height, but the more you type...</textarea>
   </div>
   <p>(resize handle disabled, because...)</p>
   <script>
@@ -61,26 +60,21 @@
     function grow() {
       /* reset the height... handles the backspace */
       textarea.style.height = 0;
- 
       /* set the textarea height equal to it's scrollHeight */
       textarea.style.height = textarea.scrollHeight + 'px';
     };
 
-    function init() {     
-      /* place cursor at the end */
-      var value = textarea.value;
-      textarea.value = '';
-      textarea.focus();
-      textarea.value = value;
+    /* place cursor at the end */
+    var value = textarea.value;
+    textarea.value = '';
+    textarea.focus();
+    textarea.value = value;
 
-      /* grow on input */
-      textarea.addEventListener('input', grow);
+    /* grow on input */
+    textarea.addEventListener('input', grow);
 
-      /* grow on init */
-      grow();
-    }
-
-    init();
+    /* grow on init */
+    grow();
   </script>
 </body>
 </html>
