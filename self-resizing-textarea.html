@@ -31,9 +31,9 @@
     .textarea {
       /*
       * styled a wrapper because i'm lazy :)
-      * it's easier not having to deal with
-      * scrollHeight, plus padding, plus border,
-      * plus whatever...
+      * it's easier than having to deal with
+      * scrollHeight, plus padding, border and
+      * whatever...
       */
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -41,6 +41,7 @@
     }
     textarea {
       min-height: 3rem;
+      max-height: 75vh;
       width: 50vw;
       font-size: .875rem;
       line-height: 1.5;
@@ -51,7 +52,7 @@
 <body>
   <h1>This b*tch be resizing itself...</h1>
   <div class="textarea">
-    <textarea>It starts with a min-height, but the more you type...</textarea>
+    <textarea>It all starts with a min-height, but then you type... and you type... and you type... until eventually you reach the max-height... then it scrolls!</textarea>
   </div>
   <p>(resize handle disabled, because...)</p>
   <script>
