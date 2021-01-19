@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto-Grow Textarea</title>
+  <title>Self-Resizing Textarea</title>
   <style>
     :root {
       font-family: sans-serif;
@@ -57,7 +57,7 @@
   <script>
     var textarea = document.querySelector('textarea');
 
-    function grow() {
+    function resize() {
       /* reset the height... handles the backspace */
       textarea.style.height = 0;
       /* set the textarea height equal to it's scrollHeight */
@@ -70,11 +70,11 @@
     textarea.focus();
     textarea.value = value;
 
-    /* grow on input */
-    textarea.addEventListener('input', grow);
+    /* resize on input */
+    textarea.addEventListener('input', resize);
 
-    /* grow on init */
-    grow();
+    /* resize on init */
+    resize();
   </script>
 </body>
 </html>
