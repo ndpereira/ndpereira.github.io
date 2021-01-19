@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-Grow Textarea</title>
+  <style>
+    :root {
+      font-family: sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      padding: 0;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    textarea {
+      min-height: 10vh;
+      width: 50vw;
+      resize: none;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Look at it grow...</h1>
+  <textarea>It can start with a min-height, but the more you type...</textarea>
+  <p>(resize handle disabled, because...)</p>
+  <script>
+    var textarea = document.querySelector('textarea');
+
+    function grow() {
+      textarea.style.height = '0';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    };
+
+    textarea.addEventListener('input', grow);
+    grow();
+  </script>
+</body>
+</html>
