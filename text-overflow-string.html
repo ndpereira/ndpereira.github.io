@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>text-overflow: &lt;string&gt;</string></title>
+  <style>
+    :root {
+      font-family: sans-serif;
+    }
+    code {
+      background: #ddd;
+      border: 1px solid #999;
+      border-radius: 2px;
+      padding: .25rem;
+    }
+    .demo {
+      max-width: 15rem;
+      padding: .25rem;
+      border: 1px solid #ccc;
+    }
+    .text-overflow span {
+      max-width: 96%;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
+    .text-overflow::after {
+      content: attr(data-overflow);
+    }
+  </style>
+</head>
+<body>
+  <h1>text-overflow: &lt;string&gt; polyfill</h1>
+  <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow#browser_compatibility">MDN</a> says it's only currently supported on firefox 😭</p>
+  <p>...but as they say... if you can't make it, fake it! 😎</p>
+  <br>
+  <h2>Demo with <code>...?</code></h2>
+  <p class="demo"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring</span></p>
+  <img src="images/drake_disapproves.jpg" alt="Drake disapproves..." width="200">
+  <p id="demo-1" class="demo" data-overflow="?"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring</span></p>
+  <img src="images/drake_approves.jpg" alt="Drake approves..." width="200">
+  <p>&mdash; "<em>use the sauce Luke...</em>"</p>
+  <p>aaaaand if you don't like it... file a complaint on <a href="https://github.com/cdeath/cdeath.github.io/blob/master/text-overflow-string.html">GitHub</a>.</p>
+  <script>
+    // now for some magic
+    function textOverflow(elm) {
+      elm.scrollWidth > elm.offsetWidth && elm.classList.add('text-overflow');
+    }
+    // runs only once
+    textOverflow(document.querySelector('#demo-1'));
+
+    // but you can bind this to a resize event listener to make it "responsive" 😬
+  </script>
+</body>
+</html>

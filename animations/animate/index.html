@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animations!</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .animate {
+      visibility: hidden;
+    }
+    .animated {
+      visibility: visible;
+    }
+    .space {
+      height: 100vh;
+    }
+  </style>
+  <link href="animate.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="animate" data-animation-name="fadeInRight" style="display: none">
+    <img src="https://worties.pt/images/worties/menu-icon-box.svg">
+  </div>
+  <div><span data-typewriter="esta, aquela, aqueloutra"></span> cena</div>
+  <div class="space"></div>
+  <span data-count-to="2342424">0</span>
+  <div class="space"></div>
+<script src="jquery.min.js"></script>
+<script src="animations.js"></script>
+<script>
+  setTimeout(function() {
+    $('body').append('<div class="animate" data-animation-name="fadeInRight"><img src="https://worties.pt/images/worties/menu-icon-box.svg"></div>');
+  }, 1e3);
+</script>
+</body>
+</html>

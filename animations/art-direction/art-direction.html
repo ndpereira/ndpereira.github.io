@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lazy Art Direction</title>
+        <style>
+            picture, img {
+                width: 100%;
+            }
+            figure {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <pre>lazyloaded picture with art direction, retina</pre>
+        <picture data-lazyload>
+            <source media="(min-width: 992px)" data-srcset="img/desktop.jpg 1x, img/desktop@2x.jpg 2x">
+            <source media="(min-width: 768px)" data-srcset="img/tablet.jpg 1x, img/tablet@2x.jpg 2x">
+            <source data-srcset="img/mobile.jpg 1x, img/mobile@2x.jpg 2x">
+            <img data-src="img/desktop.jpg" alt="art direction">
+        </picture>
+        <!--pre>lazyloaded figure, no art direction, retina</pre>
+        <figure data-lazyload>
+            <img data-srcset="img/desktop.jpg 1x, img/desktop@2x.jpg 2x" alt="no art direction">
+        </figure>
+        <pre>simple figure, retina, no lazyload</pre>
+        <figure>
+            <img srcset="img/desktop.jpg 1x, img/desktop@2x.jpg 2x" alt="no art direction">
+        </figure>
+        <pre>simple image, retina, no lazyload</pre>
+        <img srcset="img/desktop.jpg 1x, img/desktop@2x.jpg 2x" alt="no art direction">
+        <pre>simple image, no retina, no lazyload</pre>
+        <img src="img/desktop.jpg" alt="no art direction"-->
+        <script src="lazyload.js"></script>
+    </body>
+</html>
