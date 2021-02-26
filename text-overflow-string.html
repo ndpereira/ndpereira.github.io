@@ -23,13 +23,15 @@
       padding: .25rem;
       border: 1px solid #ccc;
     }
-    .text-overflow span {
-      max-width: 96%;
+    .text-overflow > * {
       display: inline-block;
+      vertical-align: middle;
+    }
+    .text-overflow span {
+      max-width: calc(100% - 1em);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      vertical-align: middle;
     }
     .text-overflow::after {
       content: attr(data-text-overflow);
