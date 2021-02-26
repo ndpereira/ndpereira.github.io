@@ -8,9 +8,14 @@
   <style>
     :root {
       font-family: sans-serif;
+      line-height: 1.2;
+    }
+    body {
+      overflow-x: hidden;
     }
     img {
       display: block;
+      max-width: 100%;
     }
     code {
       background: #eee;
@@ -40,8 +45,10 @@
 </head>
 <body>
   <h1>text-overflow: &lt;string&gt; polyfill<em>-ish</em></h1>
-  <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow#browser_compatibility">MDN</a> says it's only currently supported on firefox 😭</p>
-  <p>...but as they say... if you can't make it, fake it! 😎</p>
+  <p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow#browser_compatibility">MDN</a> says it's only currently supported on firefox 😭<br>
+    ...but as they say... if you can't make it, fake it! 😎
+  </p>
   <br>
   <h2>Demo with <code>?</code></h2>
   <p class="max-width"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstringwith?</span></p>
