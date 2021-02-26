@@ -9,13 +9,16 @@
     :root {
       font-family: sans-serif;
     }
+    img {
+      display: block;
+    }
     code {
-      background: #ddd;
+      background: #eee;
       border: 1px solid #999;
       border-radius: 2px;
       padding: .25rem;
     }
-    .demo {
+    .max-width {
       max-width: 15rem;
       padding: .25rem;
       border: 1px solid #ccc;
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
     .text-overflow::after {
-      content: attr(data-overflow);
+      content: attr(data-text-overflow);
     }
   </style>
 </head>
@@ -38,12 +41,19 @@
   <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow#browser_compatibility">MDN</a> says it's only currently supported on firefox 😭</p>
   <p>...but as they say... if you can't make it, fake it! 😎</p>
   <br>
-  <h2>Demo with <code>...?</code></h2>
-  <p class="demo"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring</span></p>
+  <h2>Demo with <code>?</code></h2>
+  <p class="max-width"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstringwith?</span></p>
   <img src="images/drake_disapproves.jpg" alt="Drake disapproves..." width="200">
-  <p id="demo-1" class="demo" data-overflow="?"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring</span></p>
+  <p class="max-width" data-text-overflow="?"><span>averyveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongstring</span></p>
   <img src="images/drake_approves.jpg" alt="Drake approves..." width="200">
-  <p>&mdash; "<em>use the sauce Luke...</em>"</p>
+  <br>
+  <p>but what if the string is short?</p>
+  <p class="max-width" data-text-overflow="?"><span>averyshortstringwith?</span></p>
+  <p>well... if it's short, it's short! nothing happens... 🙄</p>
+  <br>
+  <p>this uses javascript (&mdash; "<em>use the source Luke...</em>").</p>
+  <p>you can run it only once, or attach it to a <code>resize</code> event listener.</p>
+  <br>
   <p>aaaaand if you don't like it... file a complaint on <a href="https://github.com/cdeath/cdeath.github.io/blob/master/text-overflow-string.html">GitHub</a>.</p>
   <script>
     // now for some magic
@@ -51,7 +61,7 @@
       elm.scrollWidth > elm.offsetWidth && elm.classList.add('text-overflow');
     }
     // runs only once
-    textOverflow(document.querySelector('#demo-1'));
+    document.querySelectorAll('[data-text-overflow]').forEach(textOverflow);
 
     // but you can bind this to a resize event listener to make it "responsive" 😬
   </script>
