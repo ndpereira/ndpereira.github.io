@@ -97,7 +97,7 @@
   <script>
     // now for some magic
     function textOverflow(elm) {
-      elm.scrollWidth > elm.offsetWidth && elm.classList.add('text-overflow');
+      elm.classList.toggle('text-overflow', elm.scrollWidth > elm.offsetWidth);
     }
     // runs only once
     document.querySelectorAll('[data-text-overflow]').forEach(textOverflow);
